@@ -136,8 +136,10 @@ Dates above will be incorrectly sorted by the system. The correct notation YYYY-
 
 The shorthand notation only requires 3 and is sortable:
 
-T8T
-R1Y
+T8T_Filename.ext
+R1Y_Filename.ext
+
+If sorted on filename from old to new, the R1Y file would be correctly listed above the T8T file.
 
 
 
