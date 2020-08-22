@@ -145,19 +145,56 @@ If sorted on filename from old to new, the R1Y file would be correctly listed ab
 
 #### "understandable and usable by average humans"
 
-Meaning the date does not need be calculated due to compressed information like the first iteration. 
+This means the date does not need be calculated due to compressed information like the first iteration. 
 
-Yesterday, I did not know what the 20th letter from the alphabet was. The position of a letter in the alphabet is not knowledge ready at hand (for me); but it is deductible for those who have not memorized it and fairly universal, even if your main (latin-based) language has another alphabet. 
-
-I recognize that 
+> Yesterday, I did not know what the 20th letter from the alphabet was. The position of a letter in the alphabet is not knowledge ready at hand (for me); but it is deductible for those who have not memorized it and fairly universal, even if your main (Latin-based) language has another alphabet. 
 
 
 
+##### Understanding vs knowing the alphabet
+
+I recognize that this requires learning the positions of 26 letters plus 6 extra accented-letters.
+
+However, the proposed system allows humans to start gradually.
+
+2020-08-22 can be gradually learned in the shorthand notation if that is so desired.
+
+20H20 - Starting with only the months, requires 5 digits at best, so still shorter.
+
+208V - Starting with only the day in letter-format and the last 3 months. 
+20JV - Example in October.
+
+T822 - Only the year and last 3 months in letter-format; it saves space and the year obviously does not change that often. 
+TJ22 - Example in October
+
+T8V
+
+None of these notation variation violates the requirement as defined. Dates are shorter, it remains sortable as long as you stick to one variant.
 
 
 
+##### usable by average human
 
+This also connects to the previous section, but most people will have access to an English alphabet index order. 
 
+The following requirements are specifically applicable on the chars, but they are obviously valid for all letters and numbers in the spec.
+
+- I need to be able to enter the char via a keyboard on PC.
+- I need to be able to enter the char via a keyboard on mobile phone.
+- I need to be able to write down the char fairly easily.
+- I need to be able to differentiate the letters from each other.
+
+The reason I chose Â - Ô is because one can write them with a keyboard *without special alt-codes* and the requirements above are met. 
+
+> Other accented letters where considered: Ŷ Ě Š Ŝ Č Ŵ Ž Š Č Ê Ň Ŷ ³ þ Ť Ô. But I needed one for which I was able to actually type it and the rabbit whole of extended alt-codes in the windows registry is not one I would recommend to anyone. 
+
+Furthermore I choose the 27-31st letter on the A-Z below to maintain sort-ability:
+
+ÂBCDÊFGHÎJKLMÑÔPQRSTÛVWXYZ
+
+> I skipped the Î in favour of Ñ because of twenty-**n**ine, but also due to soft reasons: I reasoned capital 'i' can be confused with letter 'l' (el) and also because I was afraid of the smaller letter having a negative effect on how a list would look because it is smaller in width. In numbers there is no or no significant difference in char-width so a list of dates is always listed in the same with; I was afraid that the letter Î would break that tradition. Furthermore I assumed that Ñ would be easier to differentiate that Î though I have no data to backup that claim.
+>
+> There is one happy coincidental extension point of the spec. 
 
 
 
