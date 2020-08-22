@@ -19,11 +19,11 @@ The fact that the order is different between region creates an extra chance of i
 
 2020-08-22_File_Verb_description.docx
 
+Notation above requires 10 digit-chars (including hyphens for readability and zero fillers for sortability.)
 
 
 
-
-At the moment one can write this as shorter dates:
+**At the moment one can write this as shorter dates:**
 
 20-08-22 (8 chars) 
 
