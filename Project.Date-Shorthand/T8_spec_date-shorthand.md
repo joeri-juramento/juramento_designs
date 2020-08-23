@@ -206,19 +206,103 @@ Furthermore I choose the 27-31st letters on the A-Z row below to maintain sortab
 
 ##### Leap day
 
-There is one happy coincidental extension point of the spec. 
+There is one happy coincidental extension point of the spec. In one would want a specific sign for leap day, one could use Ñ or Î depending on which is chosen as the default and which remains.
+
+
+
+## Spec v0.9.0
+
+
+
+We define a 3 to 4 character date notation system with an possible extension going to 5 characters after the year 2099. 
+
+1. The system can express dates from 2000-01-01 until 2099-12-31 (and with 5 characters in the extension point up to 2999-12-31).
+
+2. The (English) alphabet is used to express two digit numbers into a single 'digit' saving horizontal space.
+
+3. Vowels with accents are used to communicate days 27 until 31.
+
+4. Dates remain sortable via the alphabet resulting in a chronologically correct list.
+
+   
+
+### First position representing the year X--
+
+1. For the first 31 years the first position presents that last two digits of a year. The millennium and century are omitted. 
+2. After the first 31 years the two first positions are identical to the last two digits of a year unless the spec is updated.
+
+| Letter | = Year | Letter | = Year | Letter | = Year | Letter  | = Year |
+| ---------: | ------ | ---------: | ------ | ---------: | ------ | ----------: | ------ |
+| 0--       | 2000   | H--       | 2008   | P--       | 2016   | X--        | 2024   |
+| A--       | 2001   | I--       | 2009   | Q--       | 2017   | Y--        | 2025   |
+| B--       | 2002   | J--       | 2010   | R--       | 2018   | Z--        | 2026   |
+| C--       | 2003   | K--       | 2011   | S--       | 2019   | Â--        | 2027   |
+| D--       | 2004   | L--       | 2012   | T--       | 2020   | Ê--        | 2028   |
+| E--       | 2005   | M--       | 2013   | U--       | 2021   | Î-- or Ñ-- | 2029   |
+| F--       | 2006   | N--       | 2014   | V--       | 2022   | Ô--        | 2030   |
+| G--       | 2007   | O--       | 2015   | W--       | 2023   | Û--        | 2031   |
+
+From year 2032 on, the notation switches back to original digits, unless the spec is updated, meaning one writes 32-- after the year Û--.
+
+
+
+### Second position representing the month -X-
+
+1. The second position represents the month and a dualistic notation form exists. 
+2. For the months 1-9 (Jan-Sept) it is recommended to use the actual singular digits and not A-H. (For faster human recognition.)
+3. For months 10,11,12 (Okt, Nov, Dec) the letters J, K and L are used.
+4. A to H can still be used as an alternative notation form and can improve readability from the year 2032 and on. ("32AA" in stead of "321A")
+
+| Shorthand | Letter | Month number | Month     |
+| --------- | ------ | ------------ | --------- |
+| -1-       | A      | 1            | January   |
+| -2-       | B      | 2            | February  |
+| -3-       | C      | 3            | March     |
+| -4-       | D      | 4            | April     |
+| -5-       | E      | 5            | May       |
+| -6-       | F      | 6            | June      |
+| -7-       | G      | 7            | July      |
+| -8-       | H      | 8            | August    |
+| -9-       | I      | 9            | September |
+| -J-       | J      | 10           | October   |
+| -K-       | K      | 11           | November  |
+| -L-       | L      | 12           | December  |
+
+
+
+### Last position representing the day of month --X
+
+1. The last position represents the day number as in day of the month 1 to 31.
+2. The alphabet letters represent the day of the month based on their index number in the (English) alphabet.
+3. Since the alphabet is 26 letters long, for numbers 27 until 31, vowels with a circumflex (Â,Ê,Î,Ô,Û) are used.
+4. For the number 29 an extra notation exist: the letter --Ñ. (For the time being, --Ñ and --Î may be used interchangeably while the spec is in draft, until a benefit of one above the other is found. One could use --Ñ to explicitly reference to a leap day, like T2Ñ.)
+5. [Extension] --Ž refers to "the last day of the month". Depending on the month, --Ž refers to 30 or 31 or in case of the month February to 28 or 29. (This allows the user to refer to the last day of the Month without needing to figure out which number fits which Month nor counting knuckels.)
+
+| Letter => | = Day of Month | Letter =>  | = Day of Month                   |
+| ---------: | -------------- | ----------: | -------------------------------- |
+| --A       | 1              | --R        | 18                               |
+| --B       | 2              | --S        | 19                               |
+| --C       | 3              | --T        | 20                               |
+| --D       | 4              | --U        | 21                               |
+| --E       | 5              | --V        | 22                               |
+| --F       | 6              | --W        | 23                               |
+| --G       | 7              | --X        | 24                               |
+| --H       | 8              | --Y        | 25                               |
+| --I       | 9              | --Z        | 26                               |
+| --J       | 10             | --Â        | 27                               |
+| --K       | 11             | --Ê        | 28                               |
+| --L       | 12             | --Î or --Ñ | 29                               |
+| --M       | 13             | --Ô        | 30                               |
+| --N       | 14             | --Û        | 31                               |
+| --O       | 15             | --Ž        | 30,31,28,29<br />(last day of month) |
+| --P       | 16             |            |                                  |
+| --Q       | 17             |            |                                  |
 
 
 
 
 
-
-
-
-
-
-
-
+999LÛ
 
 
 
