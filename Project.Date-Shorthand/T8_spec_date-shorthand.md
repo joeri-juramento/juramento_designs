@@ -202,7 +202,7 @@ Furthermore I choose the 27-31st letters on the A-Z row below to maintain sortab
 
 
 
-> I (originally) skipped the Î in favour of Ñ due to various soft reasons, so I am sure what is best: 
+> I (originally) skipped the Î in favour of Ñ due to various soft reasons, so I am not sure yet what is the best: 
 >
 > - The related number is 29; the nine starts with the letter N.
 > - The capital 'i' can be confused with letter 'l' (el) depending on fonts, however, there is no letter L with a circumflex ^, so an i with a ^ is unique.
