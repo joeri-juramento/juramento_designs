@@ -23,7 +23,7 @@ Notation above requires 10 digit-chars (including hyphens for readability and ze
 
 
 
-**At the moment one can write this as shorter dates:**
+**At the moment various suboptimal alternative notation forms exist:**
 
 20-08-22 (8 chars) 
 
@@ -41,9 +41,9 @@ or
 
 The problem is that certain dates are hard to read because of all the filler zeros; for example: 20200110; your brain wants to do something with the '11', but there is no eleven in this date.
 
-So  requirement:
+So the requirement:
 
-### Requirement
+## Requirements
 
 <u>Create a date notation that is as short as possible without too much loss of information which remains sortable (chronologically correct) by system and understandable by average humans.</u>
 
@@ -84,16 +84,16 @@ One could write all months as letters; but for quick recognition, I keep 1-9 wit
 
 For 1-31 days I normally need 2 digits, from the alphabet I have a 1 char sign up to 26. I can extend this with a unique char for 27 up to 31. By going down this path an related requirement was identified. Usable by humans. That refers to being to enter the letter on a keyboard or mobile phone without alt-codes.
 
-| Number | Letter       |
-| ------ | ------------ |
-| 1      | A            |
-| ...    | ...          |
-| 26     | Z            |
-| 27     | Â            |
-| 28     | Ê            |
-| 29     | Ñ [backup Î] |
-| 30     | Ô            |
-| 31     | Û            |
+| Number | Letter |
+| ------ | ------ |
+| 1      | A      |
+| ...    | ...    |
+| 26     | Z      |
+| 27     | Â      |
+| 28     | Ê      |
+| 29     | Ñ or Î |
+| 30     | Ô      |
+| 31     | Û      |
 
 #### Shortening years
 
@@ -143,9 +143,9 @@ If sorted on filename from old to new, the R1Y file would be correctly listed ab
 
 
 
-#### "understandable and usable by average humans"
+#### "<u>understandable</u> [and usable] by average humans"
 
-This means the date does not need be calculated due to compressed information like the first iteration. 
+This means the date does not need be calculated due to compressed information like the first iteration. (28.22)
 
 > Yesterday, I did not know what the 20th letter from the alphabet was. The position of a letter in the alphabet is not knowledge ready at hand (for me); but it is deductible for those who have not memorized it and fairly universal, even if your main (Latin-based) language has another alphabet. 
 
@@ -173,7 +173,7 @@ None of these notation variation violates the requirement as defined. Dates are 
 
 
 
-##### usable by average human
+#### "[understandable and] <u>usable</u> by average humans"
 
 This also connects to the previous section, but most people will have access to an English alphabet index order. 
 
