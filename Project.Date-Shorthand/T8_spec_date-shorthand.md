@@ -1,19 +1,24 @@
 # Short date notation | Shorthand Requirement & Spec
 
+
+[TOC]
+------
 *The following requirements where defined:*
 
 ### Intro
 
 Original dates - in various order - take up the following space in file and screen space:
 
+```
 2020-08-22 
-1234 5 67 89 --> 9 chars. 
+1234567890 --> 10 characters
+```
 
-Most of the information is redundant during the actual use but needs to defined to be specific after time has passed. So real-time relevant information is the 8-22 which means August the 22nd. 
+Most of the information is redundant during the actual use, but needs to defined to be specific after time has passed. So real-time relevant information is the 8-22 which means August the 22nd. 
 
 > I am aware of other countries have different regional formats, but all of them - soon or later - run into the same issue of sorting or not being able to read the end of the file name because of the long date.
 
-The fact that the order is different between region creates an extra chance of interpretation error. Preventing that is not the goal of this spec, making files (and notes) shorter and filenames easier to read on mobile devices, that is the goal while maintaining the ability to keep sorting files chronologically via the alphabet.
+The fact that the order is different between region creates an extra chance of interpretation error. Preventing that is not the goal of this spec, making files (and notes) shorter and filenames easier to read on mobile devices, that is the goal while maintaining the ability to keep sorting files chronologically via the alphabet. An example of the original filenames with date:
 
 20200822_File_Verb_description.docx
 
@@ -43,6 +48,8 @@ The problem is that certain dates are hard to read because of all the filler zer
 
 So the requirement:
 
+
+
 ## Requirements
 
 <u>Create a date notation that is as short as possible without too much loss of information which remains sortable (chronologically correct) by system and understandable by average humans.</u>
@@ -61,7 +68,7 @@ We can use the alphabet as numbers to prevent needing to characters above the nu
 
 ABCDEFGHIJKLMNOPQRSTUVWXYZ are 26 letters. A is the 1st letter; Z is the 26th letter. I am aware other languages have different lengths. New English and Dutch have 26 1-digit-char letters.
 
-#### Shorting months
+##### Shorting months
 
 I can spare a month digit by writing October, November, December as J,K,L:
 
@@ -80,7 +87,7 @@ One could write all months as letters; but for quick recognition, I keep 1-9 wit
 
 
 
-#### Shortening days
+##### Shortening days
 
 For 1-31 days I normally need 2 digits, from the alphabet I have a 1 char sign up to 26. I can extend this with a unique char for 27 up to 31. By going down this path an related requirement was identified. Usable by humans. That refers to being to enter the letter on a keyboard or mobile phone without alt-codes.
 
@@ -95,7 +102,7 @@ For 1-31 days I normally need 2 digits, from the alphabet I have a 1 char sign u
 | 30     | Ô      |
 | 31     | Û      |
 
-#### Shortening years
+##### Shortening years
 
 Now we have defined a spec for numbers 1 - 31, be can also re-use that for years to save a digit up to 2031.
 
@@ -181,6 +188,7 @@ The following requirements are specifically applicable on the special chars, but
 - I need to be able to enter the char via a keyboard on mobile phone.
 - I need to be able to write down the char fairly easily.
 - I need to be able to differentiate the letters from each other.
+- I need to be able to read a shorthand notation and understand it as a date. 
 
 The reason I chose Â - Ô is because one can write them with a keyboard *without special alt-codes* and the requirements above are met. 
 
@@ -276,7 +284,7 @@ From year 2032 on, the notation switches back to original digits, unless the spe
 2. The alphabet letters represent the day of the month based on their index number in the (English) alphabet.
 3. Since the alphabet is 26 letters long, for numbers 27 until 31, vowels with a circumflex (Â,Ê,Î,Ô,Û) are used.
 4. For the number 29 an additional notation exist: the letter --Ñ. (For the time being, --Ñ and --Î may be used interchangeably while the spec is in draft, until a benefit of one above the other is found. One could use --Ñ to explicitly reference to a leap day, like T2Ñ. To be continued.)
-5. [Extension] --Ž refers to "the last day of the month". Depending on the month, --Ž refers to 30 or 31 or in case of the month February to 28 or 29. (This allows the user to refer to the last day of the Month without needing to figure out which number fits which Month nor counting knuckels.)
+5. [Extension] --Ž refers to "the last day of the month". Depending on the month, --Ž refers to 30 or 31 or in case of the month February to 28 or 29. (This allows the user to refer to the last day of the Month without needing to figure out which number fits which Month nor counting knuckles.)
 
 | Letter | = Day of Month | Letter  | = Day of Month                   |
 | ---------: | -------------- | ----------: | -------------------------------- |
@@ -308,7 +316,7 @@ Examples of dates:
 | ---------------- | --------------- | ------------------------------------------------------------ |
 | 2020-01-01       | T1A             | First day of the year. Year T (20), First Month (1), Day A (1). |
 | 2020-02-29       | T2Ñ             | Leap day, using Ñ as alternative to Î.                       |
-| 2020-08-23       | T8W             |                                                              |
+| 2020-08-23       | T8W             | Example.                                                     |
 | 2020-08-27       | T8Â             | Using special char for day 27.                               |
 | 2020-09-31       | T9Û             | Using special char for day 31.                               |
 | 2020-10-01       | TJA             | Switching over to letter J for October.                      |
