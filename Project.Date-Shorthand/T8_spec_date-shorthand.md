@@ -202,13 +202,15 @@ Furthermore I choose the 27-31st letters on the A-Z row below to maintain sortab
 
 
 
-> I (originally) skipped the Î in favour of Ñ due to various soft reasons, so I am sure what is best: 
+> I (originally) skipped the Î in favour of Ñ due to various soft reasons, so I am not sure yet what is the best: 
 >
 > - The related number is 29; the nine starts with the letter N.
 > - The capital 'i' can be confused with letter 'l' (el) depending on fonts, however, there is no letter L with a circumflex ^, so an i with a ^ is unique.
 > - In numbers there is no (significant) difference in width, so a list of dates is always listed in the same with; I was afraid that the letter Î would break that tradition. A counter-argument would be that the letter I as in 9 is being used for I9I = 2009-09-09 or T9I = 2020-09-09. So the width problem, if any, does not only exists at the 29th number letter.
 > - Furthermore, I assumed that Ñ would be easier to differentiate that Î, though I have no data to backup that claim.
-> - An argument for Î would be that one could say that all vowels (A,E,I,O,U) were chosen to participate in filling up the numbers 27 to 31.
+> - An argument for Î would be that one could say that all vowels (A,E,I,O,U + ^) were chosen to participate in filling up the numbers 27 to 31. A simpler rule than introducing Ñ next to 4 vowels.
+>
+> These side notes are here to show a process of thought and can be continue after additional testing. Read the latest spec to find out the status quo.
 
 
 
@@ -327,18 +329,20 @@ Examples of dates:
 
 ### Range of spec
 
-| Datum YYYY-MM-DD | Datum shorthand   | Commenting on example                                        |
-| ---------------- | ----------------- | ------------------------------------------------------------ |
-| 2000-01-01       | 01A               | Start of spec                                                |
-| 2001-01-01       | A1A               | Example                                                      |
-| 2031-12-31       | ÛLÛ               | Last day of 3 char notation.                                 |
-| 2032-01-01       | 321A or 31AA      | First day of 4 char notation.                                |
-| 2032-12-31       | 32LÛ              | Example                                                      |
-| 2099-12-31       | 99LÛ              | Last day of 4 char notation.                                 |
-| 2100-01-01       | 1001A or 100AA    | First day of 5 char notation. [Extension]                    |
-| 2100-12-31       | 100LÛ             | Example                                                      |
-| 2999-12-31       | 999LÛ             | Last day of 5 char notation. [Extension] <br />**End of spec.** |
-| (3000-01-01)     | (3000AA or Ô00AA) | (First day of 6 char notation [Speculation])                 |
+| Datum YYYY-MM-DD    | Datum shorthand     | Commenting on example                                        |
+| ------------------- | ------------------- | ------------------------------------------------------------ |
+| 2000-01-01          | 01A                 | Start of spec                                                |
+| 2001-01-01          | A1A                 | Example                                                      |
+| 2031-12-31          | ÛLÛ                 | Last day of 3 char notation.                                 |
+| 2032-01-01          | 321A or 31AA        | First day of 4 char notation.                                |
+| 2032-12-31          | 32LÛ                | Example                                                      |
+| 2099-12-31          | 99LÛ                | Last day of 4 char notation.                                 |
+| 2100-01-01          | 1001A or 100AA      | First day of 5 char notation. [Extension]                    |
+| 2100-12-31          | 100LÛ               | Example                                                      |
+| 2999-12-31          | 999LÛ               | Last day of 5 char notation. [Extension] <br />**End of spec.** |
+| ------------------- | ------------------- | -------------------                                          |
+| (3000-01-01)        | (3000AA or Ô00AA)   | (First day of 6 char notation [Speculation])                 |
+| (1999-01-01)        | (1999AA or S99AA)   | (Before 2000, using 6 chars [Speculation])                   |
 
 
 
