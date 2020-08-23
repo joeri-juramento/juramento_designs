@@ -149,8 +149,6 @@ This means the date does not need be calculated due to compressed information li
 
 > Yesterday, I did not know what the 20th letter from the alphabet was. The position of a letter in the alphabet is not knowledge ready at hand (for me); but it is deductible for those who have not memorized it and fairly universal, even if your main (Latin-based) language has another alphabet. 
 
-
-
 ##### Understanding vs knowing the alphabet
 
 I recognize that this requires learning the positions of 26 letters plus 6 extra accented-letters.
@@ -175,9 +173,9 @@ None of these notation variation violates the requirement as defined. Dates are 
 
 #### "[understandable and] <u>usable</u> by average humans"
 
-This also connects to the previous section, but most people will have access to an English alphabet index order. 
+This also connects to the previous section. Most people will have access to an English alphabet index order and it could be learned.
 
-The following requirements are specifically applicable on the chars, but they are obviously valid for all letters and numbers in the spec.
+The following requirements are specifically applicable on the special chars, but they are obviously valid for all letters and numbers in the spec.
 
 - I need to be able to enter the char via a keyboard on PC.
 - I need to be able to enter the char via a keyboard on mobile phone.
@@ -188,13 +186,27 @@ The reason I chose Â - Ô is because one can write them with a keyboard *withou
 
 > Other accented letters where considered: Ŷ Ě Š Ŝ Č Ŵ Ž Š Č Ê Ň Ŷ ³ þ Ť Ô. But I needed one for which I was able to actually type it and the rabbit whole of extended alt-codes in the windows registry is not one I would recommend to anyone. 
 
-Furthermore I choose the 27-31st letter on the A-Z below to maintain sort-ability:
+Furthermore I choose the 27-31st letters on the A-Z row below to maintain sortability:
+
+
 
 ÂBCDÊFGHÎJKLMÑÔPQRSTÛVWXYZ
 
-> I skipped the Î in favour of Ñ because of twenty-**n**ine, but also due to soft reasons: I reasoned capital 'i' can be confused with letter 'l' (el) and also because I was afraid of the smaller letter having a negative effect on how a list would look because it is smaller in width. In numbers there is no or no significant difference in char-width so a list of dates is always listed in the same with; I was afraid that the letter Î would break that tradition. Furthermore I assumed that Ñ would be easier to differentiate that Î though I have no data to backup that claim.
+
+
+> I (originally) skipped the Î in favour of Ñ due to various soft reasons, so I am sure what is best: 
 >
-> There is one happy coincidental extension point of the spec. 
+> - The related number is 29; the nine starts with the letter N.
+> - The capital 'i' can be confused with letter 'l' (el) depending on fonts, however, there is no letter L with a circumflex ^, so an i with a ^ is unique.
+> - In numbers there is no (significant) difference in width, so a list of dates is always listed in the same with; I was afraid that the letter Î would break that tradition. A counter-argument would be that the letter I as in 9 is being used for I9I = 2009-09-09 or T9I = 2020-09-09. So the width problem, if any, does not only exists at the 29th number letter.
+> - Furthermore, I assumed that Ñ would be easier to differentiate that Î, though I have no data to backup that claim.
+> - An argument for Î would be that one could say that all vowels (A,E,I,O,U) were chosen to participate in filling up the numbers 27 to 31.
+
+
+
+##### Leap day
+
+There is one happy coincidental extension point of the spec. 
 
 
 
