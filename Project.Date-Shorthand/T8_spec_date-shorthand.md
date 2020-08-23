@@ -329,18 +329,20 @@ Examples of dates:
 
 ### Range of spec
 
-| Datum YYYY-MM-DD | Datum shorthand   | Commenting on example                                        |
-| ---------------- | ----------------- | ------------------------------------------------------------ |
-| 2000-01-01       | 01A               | Start of spec                                                |
-| 2001-01-01       | A1A               | Example                                                      |
-| 2031-12-31       | ÛLÛ               | Last day of 3 char notation.                                 |
-| 2032-01-01       | 321A or 31AA      | First day of 4 char notation.                                |
-| 2032-12-31       | 32LÛ              | Example                                                      |
-| 2099-12-31       | 99LÛ              | Last day of 4 char notation.                                 |
-| 2100-01-01       | 1001A or 100AA    | First day of 5 char notation. [Extension]                    |
-| 2100-12-31       | 100LÛ             | Example                                                      |
-| 2999-12-31       | 999LÛ             | Last day of 5 char notation. [Extension] <br />**End of spec.** |
-| (3000-01-01)     | (3000AA or Ô00AA) | (First day of 6 char notation [Speculation])                 |
+| Datum YYYY-MM-DD    | Datum shorthand     | Commenting on example                                        |
+| ------------------- | ------------------- | ------------------------------------------------------------ |
+| 2000-01-01          | 01A                 | Start of spec                                                |
+| 2001-01-01          | A1A                 | Example                                                      |
+| 2031-12-31          | ÛLÛ                 | Last day of 3 char notation.                                 |
+| 2032-01-01          | 321A or 31AA        | First day of 4 char notation.                                |
+| 2032-12-31          | 32LÛ                | Example                                                      |
+| 2099-12-31          | 99LÛ                | Last day of 4 char notation.                                 |
+| 2100-01-01          | 1001A or 100AA      | First day of 5 char notation. [Extension]                    |
+| 2100-12-31          | 100LÛ               | Example                                                      |
+| 2999-12-31          | 999LÛ               | Last day of 5 char notation. [Extension] <br />**End of spec.** |
+| ------------------- | ------------------- | -------------------                                          |
+| (3000-01-01)        | (3000AA or Ô00AA)   | (First day of 6 char notation [Speculation])                 |
+| (1999-01-01)        | (1999AA or S99AA)   | (Before 2000, using 6 chars [Speculation])                   |
 
 
 
