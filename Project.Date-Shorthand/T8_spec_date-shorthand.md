@@ -208,7 +208,9 @@ Furthermore I choose the 27-31st letters on the A-Z row below to maintain sortab
 > - The capital 'i' can be confused with letter 'l' (el) depending on fonts, however, there is no letter L with a circumflex ^, so an i with a ^ is unique.
 > - In numbers there is no (significant) difference in width, so a list of dates is always listed in the same with; I was afraid that the letter Î would break that tradition. A counter-argument would be that the letter I as in 9 is being used for I9I = 2009-09-09 or T9I = 2020-09-09. So the width problem, if any, does not only exists at the 29th number letter.
 > - Furthermore, I assumed that Ñ would be easier to differentiate that Î, though I have no data to backup that claim.
-> - An argument for Î would be that one could say that all vowels (A,E,I,O,U) were chosen to participate in filling up the numbers 27 to 31.
+> - An argument for Î would be that one could say that all vowels (A,E,I,O,U + ^) were chosen to participate in filling up the numbers 27 to 31. A simpler rule than introducing Ñ next to 4 vowels.
+>
+> These side notes are here to show a process of thought and can be continue after additional testing. Read the latest spec to find out the status quo.
 
 
 
