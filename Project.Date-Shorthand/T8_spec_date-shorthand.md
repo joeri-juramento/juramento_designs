@@ -1,4 +1,4 @@
-# Short date notation | Shorthand
+# Short date notation | Shorthand Requirement & Spec
 
 *The following requirements where defined:*
 
@@ -57,7 +57,7 @@ Breaking down the requirement:
 
 We can use the alphabet as numbers to prevent needing to characters above the number 9. Furthermore we can use accents for numbers above the number 26. 
 
-> Though I am writing this in hindsight there were a lot of iterations; one iteration that compresses information of the year and the month onto each other. So 2020-08 would become 28 (20+8). The 12th month in 2020 would simply be written as 32. A day 28.22 which is 22nd of August 2020. The problem with this iteration is that it only makes sense up to 2020-12-31; after that you would need another digit. So the 28.22 above is actually [0]28.22 and after the end of the year, one would write 122.1. The year 2029-12-31 would be 941.31 because 29+12 = 41 (compressed information) and +1 day would require a new digit. Another problem of a notation is that one needs to calculate the year and month. For those curious why substracting '20' on the 2nd digit: I started in 2020; if you re-align it with 2000 one cannot get further than 912.31. At that moment I realised I was thinking in circles because 912.31 or 028.22 are 6 chars and more complicated to use then 200822 which has a higher range. I needed to put more information per character/digit. So this line of thought was abandoned and I focused on the alphabet; our next-best-counter. 
+> Though I am writing this in hindsight there were a lot of iterations; one iteration that compresses information of the year and the month onto each other. So 2020-08 would become 28 (20+8). The 12th month in 2020 would simply be written as 32. A day 28.22 which is 22nd of August 2020. The problem with this iteration is that it only makes sense up to 2020-12-31; after that you would need another digit. So the 28.22 above is actually [0]28.22 and after the end of the year, one would write 122.1. The year 2029-12-31 would be 941.31 because 29+12 = 41 (compressed information) and +1 day would require a new digit. Another problem of a notation is that one needs to calculate the year and month. For those curious why subtracting '20' on the 2nd digit: I started in 2020; if you re-align it with 2000 one cannot get further than 912.31. At that moment I realised I was thinking in circles because 912.31 or 028.22 are 6 chars and more complicated to use then 200822 which has a higher range. I needed to put more information per character/digit. So this line of thought was abandoned and I focused on the alphabet; our next-best-counter. 
 
 ABCDEFGHIJKLMNOPQRSTUVWXYZ are 26 letters. A is the 1st letter; Z is the 26th letter. I am aware other languages have different lengths. New English and Dutch have 26 1-digit-char letters.
 
@@ -214,9 +214,9 @@ There is one happy coincidental extension point of the spec. In one would want a
 
 
 
-We define a 3 to 4 character date notation system with an possible extension going to 5 characters after the year 2099. 
+We define a 3 to 4 character date notation system with an possible extension going to 5 characters after the year 2999. 
 
-1. The system can express dates from 2000-01-01 until 2099-12-31 (and with 5 characters in the extension point up to 2999-12-31).
+1. The system can express dates from 2000-01-01 until 2099-12-31 (and with 5 characters, up to 2999-12-31 [extension]).
 
 2. The (English) alphabet is used to express two digit numbers into a single 'digit' saving horizontal space.
 
@@ -248,12 +248,12 @@ From year 2032 on, the notation switches back to original digits, unless the spe
 
 ### Second position representing the month -X-
 
-1. The second position represents the month and a dualistic notation form exists. 
+1. The second last position represents the month and a dualistic notation form exists. 
 2. For the months 1-9 (Jan-Sept) it is recommended to use the actual singular digits and not A-H. (For faster human recognition.)
 3. For months 10,11,12 (Okt, Nov, Dec) the letters J, K and L are used.
 4. A to H can still be used as an alternative notation form and can improve readability from the year 2032 and on. ("32AA" in stead of "321A")
 
-| Shorthand | Letter | Month number | Month     |
+| Shorthand | Letter | Month number | = Month   |
 | --------- | ------ | ------------ | --------- |
 | -1-       | A      | 1            | January   |
 | -2-       | B      | 2            | February  |
@@ -275,10 +275,10 @@ From year 2032 on, the notation switches back to original digits, unless the spe
 1. The last position represents the day number as in day of the month 1 to 31.
 2. The alphabet letters represent the day of the month based on their index number in the (English) alphabet.
 3. Since the alphabet is 26 letters long, for numbers 27 until 31, vowels with a circumflex (Â,Ê,Î,Ô,Û) are used.
-4. For the number 29 an extra notation exist: the letter --Ñ. (For the time being, --Ñ and --Î may be used interchangeably while the spec is in draft, until a benefit of one above the other is found. One could use --Ñ to explicitly reference to a leap day, like T2Ñ.)
+4. For the number 29 an additional notation exist: the letter --Ñ. (For the time being, --Ñ and --Î may be used interchangeably while the spec is in draft, until a benefit of one above the other is found. One could use --Ñ to explicitly reference to a leap day, like T2Ñ. To be continued.)
 5. [Extension] --Ž refers to "the last day of the month". Depending on the month, --Ž refers to 30 or 31 or in case of the month February to 28 or 29. (This allows the user to refer to the last day of the Month without needing to figure out which number fits which Month nor counting knuckels.)
 
-| Letter => | = Day of Month | Letter =>  | = Day of Month                   |
+| Letter | = Day of Month | Letter  | = Day of Month                   |
 | ---------: | -------------- | ----------: | -------------------------------- |
 | --A       | 1              | --R        | 18                               |
 | --B       | 2              | --S        | 19                               |
@@ -300,11 +300,37 @@ From year 2032 on, the notation switches back to original digits, unless the spe
 
 
 
+### Putting all positions together
+
+Examples of dates:
+
+| Datum YYYY-MM-DD | Datum shorthand | Commenting on example                                        |
+| ---------------- | --------------- | ------------------------------------------------------------ |
+| 2020-01-01       | T1A             | First day of the year. Year T (20), First Month (1), Day A (1). |
+| 2020-02-29       | T2Ñ             | Leap day, using Ñ as alternative to Î.                       |
+| 2020-08-23       | T8W             |                                                              |
+| 2020-08-27       | T8Â             | Using special char for day 27.                               |
+| 2020-09-31       | T9Û             | Using special char for day 31.                               |
+| 2020-10-01       | TJA             | Switching over to letter J for October.                      |
+| 2020-11-28       | TKÊ             | Letter K for November, Ê for 28.                             |
+| 2020-12-31       | TLÛ             | Last day of the year. Year T (20), Month L (12), Day Û (31)  |
 
 
 
+### Range of spec
 
-
+| Datum YYYY-MM-DD | Datum shorthand   | Commenting on example                                        |
+| ---------------- | ----------------- | ------------------------------------------------------------ |
+| 2000-01-01       | 01A               | Start of spec                                                |
+| 2001-01-01       | A1A               | Example                                                      |
+| 2031-12-31       | ÛLÛ               | Last day of 3 char notation.                                 |
+| 2032-01-01       | 321A or 31AA      | First day of 4 char notation.                                |
+| 2032-12-31       | 32LÛ              | Example                                                      |
+| 2099-12-31       | 99LÛ              | Last day of 4 char notation.                                 |
+| 2100-01-01       | 1001A or 100AA    | First day of 5 char notation. [Extension]                    |
+| 2100-12-31       | 100LÛ             | Example                                                      |
+| 2999-12-31       | 999LÛ             | Last day of 5 char notation. [Extension] <br />**End of spec.** |
+| (3000-01-01)     | (3000AA or Ô00AA) | (First day of 6 char notation [Speculation])                 |
 
 
 
@@ -327,7 +353,7 @@ From year 2032 on, the notation switches back to original digits, unless the spe
 
 
 notes
-999LÛ
+
 
 End of File.
 
