@@ -1,8 +1,11 @@
 addEventListener('fetch', event => {
 
   
-  //var currentDate = Date.now();
   var currentDate = new Date();
+ 
+  console.log(currentDate);
+  currentDate.setTime(currentDate.getTime() + 2*60*60*1000 );
+  console.log(currentDate);
 
   var currentYear = currentDate.getFullYear();
   var currentMonth = currentDate.getMonth()+1;
@@ -18,17 +21,18 @@ addEventListener('fetch', event => {
 
    var returnTXT = 
     head1 + bodystart + '\n\n'
-    + '<h1>Today is ' + shortyear + shortmonth + shortday + "</h1>"
+    + '<h1>Today is ' + shortyear + shortmonth + shortday + " 😄</h1>"
     + '<h3><i>Shorthand Ðate Notation by Juramento </i></h3>'
-    + '\n\n\n\n\n\n'  
-    + currentDate +  '\n\n'   
+    + '\n\n\n\n\n\n' + '<p> Original formats: <br>'  
+    + currentDate.toLocaleString('nl-NL', {weekday: 'long', year:'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'}) +  '\n\n <br>'   
+    + currentDate.toString().substr(0,21) + '\n\n'   
    /* + currentYear + '\n' 
     + currentMonth + '\n'
     + currentDay + '\n\n'
     + shortyear + '\n\n'
     + shortmonth + '\n\n'
     + shortday + '\n\n\n'
-   */ + '<p><p><a href="https://go.juramento.nl/shortdates">Spec</a> 😎🤓'
+   */ + '<p><p><a href="https://go.juramento.nl/shortdates">Specification</a> 😎🤓'
     + bodyend;
     
 
@@ -92,3 +96,8 @@ async function handleRequest(request,returnTXT) {
     }
   )
 }
+
+
+//Notes
+ //var currentDate = new Date().toLocaleString("en-us", {timeZone: "Europe/Amsterdam"});
+ //var currentDate = Date.now();
