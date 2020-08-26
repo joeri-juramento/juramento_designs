@@ -224,17 +224,17 @@ There is one happy coincidental extension point of the spec. If one would want a
 
 
 
-## Spec v0.9.0
+## Spec v0.9.1
 
 
 
-We define a 3 to 4 character date notation system with an possible extension going to 5 characters after the year 2999. 
+We define a 3 to 4 character date notation system with an possible extension going to 5 characters: 
 
 1. The system can express dates from 2000-01-01 until 2099-12-31 (and with 5 characters, up to 2999-12-31 [extension]).
 
 2. The (English) alphabet is used to express two digit numbers into a single 'digit' saving horizontal space.
 
-3. Vowels with accents are used to communicate days 27 until 31.
+3. Vowels with a circumflex (^) are used to communicate days 27 until 31.
 
 4. Dates remain sortable via the alphabet resulting in a chronologically correct list.
 
@@ -252,13 +252,13 @@ We define a 3 to 4 character date notation system with an possible extension goi
 | B--       | 2002   | J--       | 2010   | R--       | 2018   | Z--        | 2026   |
 | C--       | 2003   | K--       | 2011   | S--       | 2019   | Â--        | 2027   |
 | D--       | 2004   | L--       | 2012   | T--       | 2020   | Ê--        | 2028   |
-| E--       | 2005   | M--       | 2013   | U--       | 2021   | Î-- or Ñ-- | 2029   |
+| E--       | 2005   | M--       | 2013   | U--       | 2021   | (*~~Ñ-- or~~) Î-- | 2029   |
 | F--       | 2006   | N--       | 2014   | V--       | 2022   | Ô--        | 2030   |
 | G--       | 2007   | O--       | 2015   | W--       | 2023   | Û--        | 2031   |
 
 From year 2032 on, the notation switches back to original digits, unless the spec is updated, meaning one writes 32-- after the year Û--.
 
-
+> (*Ñ if the discussion of 29 progresses towards Ñ as a special notation for leap day the 29th, it makes less sense to also keep using it also as an alternative to 29 in the years.)
 
 ### Second position representing the month -X-
 
@@ -305,7 +305,7 @@ From year 2032 on, the notation switches back to original digits, unless the spe
 | --I       | 9              | --Z        | 26                               |
 | --J       | 10             | --Â        | 27                               |
 | --K       | 11             | --Ê        | 28                               |
-| --L       | 12             | --Î or --Ñ | 29                               |
+| --L       | 12             | (--Ñ or) --Î | 29                               |
 | --M       | 13             | --Ô        | 30                               |
 | --N       | 14             | --Û        | 31                               |
 | --O       | 15             | --Ž        | 30,31,28,29<br />(last day of month) |
