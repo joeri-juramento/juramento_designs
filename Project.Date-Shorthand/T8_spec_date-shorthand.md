@@ -350,28 +350,72 @@ Examples of dates:
 
 
 
+## Implementation vBeta
+
+> I started using it on my own file system and my paper notes; the damn date field is finally large enough for my handwriting ;).
+>
+> To be continued. 
+
+
+
+### Today Site
+
+At https://go.juramento.nl/today you can find the shorthand date of today. Iframe below:
+
+<iframe height="350" width="100" scrolling='no' frameborder='yes' src="https://juramento.nl/today"></iframe>
+
+It is running a script on a Cloudflare worker. The date is corrected for CEST time (UTC+2), since the script is running at the Cloudflare's side, your browser's local date is not consulted. 
+
+> (And if you are on this site, there is even a chance that due to your privacy settings your browser does not represent your actual local time, so actually I do not want to address time zones and it shouldn't be required.)
+>
+> I was just curious if and how fast I could build it in Javascript in a Cloudflare worker and I did. The fact that Date() is tied to time (in Javascript) was just a necessary evil to overcome.
+
+
+
+### Calendar
+
+> After I got the hang of some JavaScript date operations and my conversion, I asked myself: what can I do if I really want to rely on the short date system? I argued that I needed some integration with my current digital system. I tried to use the 'Alternative calendar' feature in Windows and 'Alternative Timezone' but that is not really for a Custom Time Date Notation like the above, so I settled on a integration with my calendar via iCal. I argued that I want to be able to update the events quickly if the spec ever got updated so I didn't want a one-time export which could expire.
+>
+> So I looked into *.ics file which is a text-based format which a Cloudflare worker could generate and serve.
+
+#### Dynamic rolling horizon of events
+
+> I don't need 365 events in my calendar. I just need some visible support when I am learning the AlphabetÐates. Remember it is a shorthand notation form, not an complete replacement of the actual date if that makes any sense at this point.
+
+Based on today's date this dynamic calendar will move forward with the time into the future, adding new events and removing old ones. Every event will have the shorthand date is its subject, for example "T8Z". No reminders are added (but beware of your client) and time is marked as free. The iCal spec was followed. [iCalender.org's validator](https://icalendar.org/validator.html?url=https://blog.juramento.nl/shortdates/AlpabetDates.ics) really helped.
+
+##### iCal desires (v1.0)
+
+1. I want 6 weeks in the past from today with only a weekly event on Monday. (First day of the week in NL.)
+2. I want 14 days from today with a daily event.
+3. After the first 2 weeks from today, I want 16 weeks with weekly events on Monday.
+
+##### Webcal / iCal link
+
+You can subscribe to the iCal calendar with this URL: https://blog.juramento.nl/shortdates/AlpabetDates.ics 
+If you download and save the file, you get an export which will not update itself as far as I know. If you import two offline files, you should not get double events due to an unique UID in every event. If you really want to see, **I strongly recommend subscribing instead of downloading** so the calendar is automatically updated.
+
+#### iCal generator script
+
+At the moment of writing you cannot customize the number of events, unless you run your own script. You can find it in the repository:
+
+https://go.juramento.nl/source-shortdates-ical
+
+
+
+## Meta
+
+| Attribute                    | Value                                      |
+| ---------------------------- | ------------------------------------------ |
+| Starting date                | T80 \| 2020-08                             |
+| Last formal publish update   | T8Z \| 2020-08-26 \|^\| Check git commits: |
+| Source location of this page | https://go.juramento.nl/source-shortdates  |
+| Permalink to published page  | https://go.juramento.nl/shortdates         |
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-notes
-
-
-End of File.
-
+<!--End of File marker; for Git.-->
 
 
