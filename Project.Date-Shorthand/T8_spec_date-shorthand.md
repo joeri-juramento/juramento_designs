@@ -98,7 +98,7 @@ For 1-31 days I normally need 2 digits, from the alphabet I have a 1 char sign u
 | 26     | Z      |
 | 27     | Â      |
 | 28     | Ê      |
-| 29     | Ñ or Î |
+| 29     | Î or Ñ |
 | 30     | Ô      |
 | 31     | Û      |
 
@@ -192,7 +192,7 @@ The following requirements are specifically applicable on the special chars, but
 
 The reason I chose Â - Ô is because one can write them with a keyboard *without special alt-codes* and the requirements above are met. 
 
-> Other accented letters where considered: Ŷ Ě Š Ŝ Č Ŵ Ž Š Č Ê Ň Ŷ ³ þ Ť Ô. But I needed one for which I was able to actually type it and the rabbit whole of extended alt-codes in the windows registry is not one I would recommend to anyone. 
+> Other accented letters where considered: Ŷ Ě Š Ŝ Č Ŵ Ž Š Č Ê Ň Ŷ ³ þ Ť Ô. But I needed one for which I was able to actually type it and the rabbit hole of extended alt-codes via the windows registry is not one I would recommend to anyone. 
 
 Furthermore I choose the 27-31st letters on the A-Z row below to maintain sortability:
 
@@ -202,21 +202,25 @@ Furthermore I choose the 27-31st letters on the A-Z row below to maintain sortab
 
 
 
-> I (originally) skipped the Î in favour of Ñ due to various soft reasons, so I am not sure yet what is the best: 
+> I (originally) skipped the Î in favour of Ñ due to various soft reasons (in retrospect: read weak arguments) , so I am not sure yet what is the best: 
 >
-> - The related number is 29; the nine starts with the letter N.
-> - The capital 'i' can be confused with letter 'l' (el) depending on fonts, however, there is no letter L with a circumflex ^, so an i with a ^ is unique.
-> - In numbers there is no (significant) difference in width, so a list of dates is always listed in the same with; I was afraid that the letter Î would break that tradition. A counter-argument would be that the letter I as in 9 is being used for I9I = 2009-09-09 or T9I = 2020-09-09. So the width problem, if any, does not only exists at the 29th number letter.
-> - Furthermore, I assumed that Ñ would be easier to differentiate that Î, though I have no data to backup that claim.
-> - An argument for Î would be that one could say that all vowels (A,E,I,O,U + ^) were chosen to participate in filling up the numbers 27 to 31. A simpler rule than introducing Ñ next to 4 vowels.
+> 1. The related number is 29; the nine starts with the letter N.
+> 2. The capital 'i' can be confused with letter 'l' (el) depending on fonts, however, there is no letter L with a circumflex ^, so an i with a ^ is unique.
+> 3. In numbers there is no (significant) difference in width, so a list of dates is always listed in the same with; I was afraid that the letter Î would break that tradition. A counter-argument would be that the letter I as in 9 is being used for I9I = 2009-09-09 or T9I = 2020-09-09. So the width problem, if any, does not only exists at the 29th number letter.
+> 4. Furthermore, I assumed that Ñ would be easier to differentiate that Î, though I have no data to backup that claim.
+> 5. An argument for Î would be that one could say that all vowels (A,E,I,O,U + ^) were chosen to participate in filling up the numbers 27 to 31. A simpler rule than introducing Ñ next to 4 vowels.
 >
 > These side notes are here to show a process of thought and can be continue after additional testing. Read the latest spec to find out the status quo.
+>
+> ##### Comments added after a while:
+>
+> Argument 5 seems to be much stronger than anticipated. I experienced it about talking about the spec with others (n=2). "I used the vowels with little roof" [NL: "Klinkers met een dakje"] for the missing numbers (which also maintains sortability), is easier to communicate than "I used the letter N with tilde for 29 and the rest are vowels".  //T8Z
 
 
 
 ##### Leap day
 
-There is one happy coincidental extension point of the spec. In one would want a specific sign for leap day, one could use Ñ or Î depending on which is chosen as the default and which remains.
+There is one happy coincidental extension point of the spec. If one would want a specific sign for leap day, one could use Ñ or Î depending on which is chosen as the default and which remains.
 
 
 
