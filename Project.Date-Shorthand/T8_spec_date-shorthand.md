@@ -314,7 +314,7 @@ From year 2032 on, the notation switches back to original digits, unless the spe
 
 
 
-### Putting all positions together
+### Full examples - All positions
 
 Examples of dates:
 
