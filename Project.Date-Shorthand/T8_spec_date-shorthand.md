@@ -98,7 +98,7 @@ For 1-31 days I normally need 2 digits, from the alphabet I have a 1 char sign u
 | 26     | Z      |
 | 27     | Â      |
 | 28     | Ê      |
-| 29     | Ñ or Î |
+| 29     | Î or Ñ |
 | 30     | Ô      |
 | 31     | Û      |
 
@@ -192,7 +192,7 @@ The following requirements are specifically applicable on the special chars, but
 
 The reason I chose Â - Ô is because one can write them with a keyboard *without special alt-codes* and the requirements above are met. 
 
-> Other accented letters where considered: Ŷ Ě Š Ŝ Č Ŵ Ž Š Č Ê Ň Ŷ ³ þ Ť Ô. But I needed one for which I was able to actually type it and the rabbit whole of extended alt-codes in the windows registry is not one I would recommend to anyone. 
+> Other accented letters where considered: Ŷ Ě Š Ŝ Č Ŵ Ž Š Č Ê Ň Ŷ ³ þ Ť Ô. But I needed one for which I was able to actually type it and the rabbit hole of extended alt-codes via the windows registry is not one I would recommend to anyone. 
 
 Furthermore I choose the 27-31st letters on the A-Z row below to maintain sortability:
 
@@ -202,35 +202,39 @@ Furthermore I choose the 27-31st letters on the A-Z row below to maintain sortab
 
 
 
-> I (originally) skipped the Î in favour of Ñ due to various soft reasons, so I am not sure yet what is the best: 
+> I (originally) skipped the Î in favour of Ñ due to various soft reasons (in retrospect: read weak arguments) , so I am not sure yet what is the best: 
 >
-> - The related number is 29; the nine starts with the letter N.
-> - The capital 'i' can be confused with letter 'l' (el) depending on fonts, however, there is no letter L with a circumflex ^, so an i with a ^ is unique.
-> - In numbers there is no (significant) difference in width, so a list of dates is always listed in the same with; I was afraid that the letter Î would break that tradition. A counter-argument would be that the letter I as in 9 is being used for I9I = 2009-09-09 or T9I = 2020-09-09. So the width problem, if any, does not only exists at the 29th number letter.
-> - Furthermore, I assumed that Ñ would be easier to differentiate that Î, though I have no data to backup that claim.
-> - An argument for Î would be that one could say that all vowels (A,E,I,O,U + ^) were chosen to participate in filling up the numbers 27 to 31. A simpler rule than introducing Ñ next to 4 vowels.
+> 1. The related number is 29; the nine starts with the letter N.
+> 2. The capital 'i' can be confused with letter 'l' (el) depending on fonts, however, there is no letter L with a circumflex ^, so an i with a ^ is unique.
+> 3. In numbers there is no (significant) difference in width, so a list of dates is always listed in the same with; I was afraid that the letter Î would break that tradition. A counter-argument would be that the letter I as in 9 is being used for I9I = 2009-09-09 or T9I = 2020-09-09. So the width problem, if any, does not only exists at the 29th number letter.
+> 4. Furthermore, I assumed that Ñ would be easier to differentiate that Î, though I have no data to backup that claim.
+> 5. An argument for Î would be that one could say that all vowels (A,E,I,O,U + ^) were chosen to participate in filling up the numbers 27 to 31. A simpler rule than introducing Ñ next to 4 vowels.
 >
 > These side notes are here to show a process of thought and can be continue after additional testing. Read the latest spec to find out the status quo.
+>
+> ##### Comments added after a while:
+>
+> Argument 5 seems to be much stronger than anticipated. I experienced it about talking about the spec with others (n=2). "I used the vowels with little roof" [NL: "Klinkers met een dakje"] for the missing numbers (which also maintains sortability), is easier to communicate than "I used the letter N with tilde for 29 and the rest are vowels".  //T8Z
 
 
 
 ##### Leap day
 
-There is one happy coincidental extension point of the spec. In one would want a specific sign for leap day, one could use Ñ or Î depending on which is chosen as the default and which remains.
+There is one happy coincidental extension point of the spec. If one would want a specific sign for leap day, one could use Ñ or Î depending on which is chosen as the default and which remains.
 
 
 
-## Spec v0.9.0
+## Spec v0.9.1
 
 
 
-We define a 3 to 4 character date notation system with an possible extension going to 5 characters after the year 2999. 
+We define a 3 to 4 character date notation system with an possible extension going to 5 characters: 
 
 1. The system can express dates from 2000-01-01 until 2099-12-31 (and with 5 characters, up to 2999-12-31 [extension]).
 
 2. The (English) alphabet is used to express two digit numbers into a single 'digit' saving horizontal space.
 
-3. Vowels with accents are used to communicate days 27 until 31.
+3. Vowels with a circumflex (^) are used to communicate days 27 until 31.
 
 4. Dates remain sortable via the alphabet resulting in a chronologically correct list.
 
@@ -248,13 +252,13 @@ We define a 3 to 4 character date notation system with an possible extension goi
 | B--       | 2002   | J--       | 2010   | R--       | 2018   | Z--        | 2026   |
 | C--       | 2003   | K--       | 2011   | S--       | 2019   | Â--        | 2027   |
 | D--       | 2004   | L--       | 2012   | T--       | 2020   | Ê--        | 2028   |
-| E--       | 2005   | M--       | 2013   | U--       | 2021   | Î-- or Ñ-- | 2029   |
+| E--       | 2005   | M--       | 2013   | U--       | 2021   | (*~~Ñ-- or~~) Î-- | 2029   |
 | F--       | 2006   | N--       | 2014   | V--       | 2022   | Ô--        | 2030   |
 | G--       | 2007   | O--       | 2015   | W--       | 2023   | Û--        | 2031   |
 
 From year 2032 on, the notation switches back to original digits, unless the spec is updated, meaning one writes 32-- after the year Û--.
 
-
+> (*Ñ if the discussion of 29 progresses towards Ñ as a special notation for leap day the 29th, it makes less sense to also keep using it also as an alternative to 29 in the years.)
 
 ### Second position representing the month -X-
 
@@ -301,7 +305,7 @@ From year 2032 on, the notation switches back to original digits, unless the spe
 | --I       | 9              | --Z        | 26                               |
 | --J       | 10             | --Â        | 27                               |
 | --K       | 11             | --Ê        | 28                               |
-| --L       | 12             | --Î or --Ñ | 29                               |
+| --L       | 12             | (--Ñ or) --Î | 29                               |
 | --M       | 13             | --Ô        | 30                               |
 | --N       | 14             | --Û        | 31                               |
 | --O       | 15             | --Ž        | 30,31,28,29<br />(last day of month) |
@@ -310,7 +314,7 @@ From year 2032 on, the notation switches back to original digits, unless the spe
 
 
 
-### Putting all positions together
+### Full examples - All positions
 
 Examples of dates:
 
@@ -346,28 +350,72 @@ Examples of dates:
 
 
 
+## Implementation vBeta
+
+> I started using it on my own file system and my paper notes; the damn date field is finally large enough for my handwriting ;).
+>
+> To be continued. 
+
+
+
+### Today Site
+
+At https://go.juramento.nl/today you can find the shorthand date of today. Iframe below:
+
+<iframe height="350" width="100" scrolling='no' frameborder='yes' src="https://juramento.nl/today"></iframe>
+
+It is running a script on a Cloudflare worker. The date is corrected for CEST time (UTC+2), since the script is running at the Cloudflare's side, your browser's local date is not consulted. 
+
+> (And if you are on this site, there is even a chance that due to your privacy settings your browser does not represent your actual local time, so actually I do not want to address time zones and it shouldn't be required.)
+>
+> I was just curious if and how fast I could build it in Javascript in a Cloudflare worker and I did. The fact that Date() is tied to time (in Javascript) was just a necessary evil to overcome.
+
+
+
+### Calendar
+
+> After I got the hang of some JavaScript date operations and my conversion, I asked myself: what can I do if I really want to rely on the short date system? I argued that I needed some integration with my current digital system. I tried to use the 'Alternative calendar' feature in Windows and 'Alternative Timezone' but that is not really for a Custom Time Date Notation like the above, so I settled on a integration with my calendar via iCal. I argued that I want to be able to update the events quickly if the spec ever got updated so I didn't want a one-time export which could expire.
+>
+> So I looked into *.ics file which is a text-based format which a Cloudflare worker could generate and serve.
+
+#### Dynamic rolling horizon of events
+
+> I don't need 365 events in my calendar. I just need some visible support when I am learning the AlphabetÐates. Remember it is a shorthand notation form, not an complete replacement of the actual date if that makes any sense at this point.
+
+Based on today's date this dynamic calendar will move forward with the time into the future, adding new events and removing old ones. Every event will have the shorthand date is its subject, for example "T8Z". No reminders are added (but beware of your client) and time is marked as free. The iCal spec was followed. [iCalender.org's validator](https://icalendar.org/validator.html?url=https://blog.juramento.nl/shortdates/AlpabetDates.ics) really helped.
+
+##### iCal desires (v1.0)
+
+1. I want 6 weeks in the past from today with only a weekly event on Monday. (First day of the week in NL.)
+2. I want 14 days from today with a daily event.
+3. After the first 2 weeks from today, I want 16 weeks with weekly events on Monday.
+
+##### Webcal / iCal link
+
+You can subscribe to the iCal calendar with this URL: https://blog.juramento.nl/shortdates/AlpabetDates.ics 
+If you download and save the file, you get an export which will not update itself as far as I know. If you import two offline files, you should not get double events due to an unique UID in every event. If you really want to see, **I strongly recommend subscribing instead of downloading** so the calendar is automatically updated.
+
+#### iCal generator script
+
+At the moment of writing you cannot customize the number of events, unless you run your own script. You can find it in the repository:
+
+https://go.juramento.nl/source-shortdates-ical
+
+
+
+## Meta
+
+| Attribute                    | Value                                      |
+| ---------------------------- | ------------------------------------------ |
+| Starting date                | T80 \| 2020-08                             |
+| Last formal publish update   | T8Z \| 2020-08-26 \|^\| Check git commits: |
+| Source location of this page | https://go.juramento.nl/source-shortdates  |
+| Permalink to published page  | https://go.juramento.nl/shortdates         |
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-notes
-
-
-End of File.
-
+<!--End of File marker; for Git.-->
 
 
