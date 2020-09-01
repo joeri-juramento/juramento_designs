@@ -40,8 +40,8 @@ addEventListener('fetch', event => {
     var icallist = generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"start");
 
     //Preparing next iteration
-    var numberOfEvents = 14; //This sets number of events counting forward from today.
-    var frequency = 1;       
+    var numberOfEvents = 15; //This sets number of events counting forward from today with today as 1.
+    var frequency = 1;
     startdate.setTime(currentDate.getTime()); //Today.
     init_second_Vars(startdate);
     //Preparing work array.
@@ -60,8 +60,9 @@ addEventListener('fetch', event => {
     console.log('fase 3 start date ITERATION 3: '+ startdate + ' -- inputdata: ' + ical_inputdata);
     icallist += generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"end");
 
-    //Yes, I am aware I need to create another function of the generic behaviour. 
-  
+    //Yes, I am aware I need to create another function of the generic behaviour, but for now,
+    //I like the overview and everyfase has subtle differences.
+
   event.respondWith(handleRequest(event.request,icallist))
   //event.respondWith(handleRequest(event.request,returnTXT))
 
@@ -72,8 +73,30 @@ function init_primary_vars () {
   currentDate = new Date();  
 
   console.log('Init time ' + currentDate);
-  //Correcting for my local timezone.
-  var offset = 2;
+  //Correcting for my local timezone, otherwise during a few hours a day, the dates do not match with my local date.
+  //I should look into passing the offset time via the URL because browsertime is not an option.
+  //Ow, wait passing through url is not valid 365 days a year.
+  //The offset is depended on timezone and date-in-year thus time to determine summer/winter time. :/
+  //Just remembered, at TJY it should become UTC+1 due to Wintertime. Bollocks.
+  /*Note to self. The output ical-file is not timezone depended, it mentions dates without timezone and should be valid
+    in any timezone, so why is the offset even introduced? Because during testing in the late evening the today site gave the
+    incorrect date and therefore you introduced offset correction. Otherwise the 'CURRENTDATE' will not work. You cannot seem
+    to ask javascript: " give me the time in a timezone X" . You always get UTC, especially on serverside javascript, so the
+    output could vary on dates depending on the time you ask the server and the difference in dates between the server and
+    local time. So the ical-file generation is depended on timezones unfortunately, eventhough the file itself is not.
+    Maybe I should add timezones information into the output and then let the local calender automatically convert it, but I
+    can't: timezones in calender are made for appointments or events that have 1 start time and 1 endtime.
+    ShortDates have as many startdates as there are timezones. That is why I cannot 'use' timezones to my advantage, because
+    in this case you want the appointment in another timezone to start at a different time. One could argue that a day
+    we named the first of October (example) starts at least 24 times. Bollocks again.
+    What if we removed the new-date-current date dependency? Then we cannot create a rolling horizon, but just 365 static events.
+    Would that be so bad? The shortdates are too dominantly visible if every date has an event in the ical, that is why we
+    switched to weekly events; please note that the shorthand ical is a quick support mechanism to help with conversion or
+    rather validate conversions. I already notice that my brain can convert on the go. Learning different muscle memory for ^i
+    on the mac, is harder than learning that 29 of August = T8Î.
+  */
+
+  var offset = 2; //This means UTC+2. CEST.
   currentDate.setTime(currentDate.getTime() + offset*60*60*1000 );
   console.log('Init fix_ ' + currentDate);
 
