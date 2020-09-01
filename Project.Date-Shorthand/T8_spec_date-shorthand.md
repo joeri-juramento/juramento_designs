@@ -18,15 +18,14 @@ Most of the information is redundant during the actual use, but needs to defined
 
 > I am aware of other countries have different regional formats, but all of them - soon or later - run into the same issue of sorting or not being able to read the end of the file name because of the long date.
 
-The fact that the order is different between region creates an extra chance of interpretation error. Preventing that is not the goal of this spec, making files (and notes) shorter and filenames easier to read on mobile devices, that is the goal while maintaining the ability to keep sorting files chronologically via the alphabet. An example of the original filenames with date:
+The fact that the order is different between region creates an extra chance of interpretation error. Preventing that is not the goal of this spec, making files (and notes) shorter and filenames easier to read on mobile devices, that is the goal while maintaining the ability to keep sorting files chronologically via the alphabet. An example of the original (very long) filenames with date:
 
+```
 20200822_File_Verb_description.docx
-
 2020-08-22_File_Verb_description.docx
+```
 
 Notation above requires 10 digit-chars (including hyphens for readability and zero fillers for sortability.)
-
-
 
 **At the moment various suboptimal alternative notation forms exist:**
 
@@ -364,7 +363,7 @@ At https://go.juramento.nl/today you can find the shorthand date of today. Ifram
 
 <iframe height="350" width="100" scrolling='no' frameborder='yes' src="https://juramento.nl/today"></iframe>
 
-It is running a script on a Cloudflare worker. The date is corrected for CEST time (UTC+2), since the script is running at the Cloudflare's side, your browser's local date is not consulted. 
+It is running a script on a Cloudflare worker. The date is corrected for CEST time (UTC+2), since the script is running at the Cloudflare's side, your browser's local date is not consulted.
 
 > (And if you are on this site, there is even a chance that due to your privacy settings your browser does not represent your actual local time, so actually I do not want to address time zones and it shouldn't be required.)
 >
@@ -407,7 +406,7 @@ https://go.juramento.nl/source-shortdates-ical
 
 | Attribute                    | Value                                      |
 | ---------------------------- | ------------------------------------------ |
-| Starting date                | T80 \| 2020-08                             |
+| Starting date                | T8- \| 2020-08                             |
 | Last formal publish update   | T8Z \| 2020-08-26 \|^\| Check git commits: |
 | Source location of this page | https://go.juramento.nl/source-shortdates  |
 | Permalink to published page  | https://go.juramento.nl/shortdates         |
