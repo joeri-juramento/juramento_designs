@@ -17,7 +17,7 @@ T1X_Document_Project_Teleport_v2.1.[pdf]
 ----------------------------------------------------------------------------------------------
 Design of the spec can be found here:     https://go.juramento.nl/shortdates
 Repo location of the spec and scripts:    https://go.juramento.nl/source-shortdates-ical
-This script is live at CloudFlare worker: https://blog.juramento.nl/shortdates/AlphabetDates.ics | ~/*
+This script is live at CloudFlare worker: https://blog.juramento.nl/shortdates/AlphabetDates.ics 
 The Today script can be found live here:  https://go.juramento.nl/today
 FYI: Go-links can be kept up to date if their destionation changes, hence indirect links.
 
@@ -41,7 +41,7 @@ addEventListener('fetch', event => {
 
     //Preparing next iteration
     var numberOfEvents = 15; //This sets number of events counting forward from today with today as 1.
-    var frequency = 1;
+    var frequency = 1;       
     startdate.setTime(currentDate.getTime()); //Today.
     init_second_Vars(startdate);
     //Preparing work array.
@@ -51,6 +51,7 @@ addEventListener('fetch', event => {
 
     //Preparing next iteration to weekly.
     var numberOfEvents = 16; //Number of weeks (because of freq.=7).
+    //var numberOfEvents = 1; //debugmode
     var frequency = 7;
     startdate = ical_inputdata[6]; //Where we left things.
     startdate = findDayofWeek(1,startdate); //finding monday.
@@ -58,11 +59,24 @@ addEventListener('fetch', event => {
     //Preparing work array.
     ical_inputdata = [0,myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,shortdate,currentDate];
     console.log('fase 3 start date ITERATION 3: '+ startdate + ' -- inputdata: ' + ical_inputdata);
+    icallist += generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"nowrap");
+
+    //Preparing next iteration, additional weekly, but from today.
+    if (currentDate.getDay() != 1) {
+    var numberOfEvents = 4; //Number of weeks (because of freq.=7).
+    var frequency = 7;
+    startdate.setTime(currentDate.getTime() + 21*24*60*60*1000); //Same weekday in 3 weeks. 
+    console.log("startdate:" + startdate);
+    init_second_Vars(startdate);
+    //Preparing work array.
+    ical_inputdata = [0,myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,shortdate,currentDate];
+    console.log('fase 4 start date ITERATION 4: '+ startdate + ' -- inputdata: ' + ical_inputdata);
     icallist += generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"end");
+    }
 
-    //Yes, I am aware I need to create another function of the generic behaviour, but for now,
+    //Yes, I am aware I need to create another function of the generic behaviour, but for now, 
     //I like the overview and everyfase has subtle differences.
-
+  
   event.respondWith(handleRequest(event.request,icallist))
   //event.respondWith(handleRequest(event.request,returnTXT))
 
@@ -74,7 +88,7 @@ function init_primary_vars () {
 
   console.log('Init time ' + currentDate);
   //Correcting for my local timezone, otherwise during a few hours a day, the dates do not match with my local date.
-  //I should look into passing the offset time via the URL because browsertime is not an option.
+  //I should look into passing the offset time via the URL because browsertime is not an option. 
   //Ow, wait passing through url is not valid 365 days a year.
   //The offset is depended on timezone and date-in-year thus time to determine summer/winter time. :/
   //Just remembered, at TJY it should become UTC+1 due to Wintertime. Bollocks.
@@ -92,7 +106,7 @@ function init_primary_vars () {
     What if we removed the new-date-current date dependency? Then we cannot create a rolling horizon, but just 365 static events.
     Would that be so bad? The shortdates are too dominantly visible if every date has an event in the ical, that is why we
     switched to weekly events; please note that the shorthand ical is a quick support mechanism to help with conversion or
-    rather validate conversions. I already notice that my brain can convert on the go. Learning different muscle memory for ^i
+    rather validate conversions. I already notice that my brain can convert on the go. Learning different muscle memory for ^i 
     on the mac, is harder than learning that 29 of August = T8Î.
   */
 
@@ -196,7 +210,7 @@ function createICAL (myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,
   + 'SUMMARY:' + shortdate + '\r\n'
   + 'DESCRIPTION:Shortdate of ' + myLongDateFormat + '\r\n' 
   + 'UID:DateByAlpha_' + myLongDateFormat + '_v1.0' + '\r\n'
-  + 'DTSTAMP:' + '20200825T201003' + '\r\n'
+  + 'DTSTAMP:' + '20200825T204200' + '\r\n' //in here the timestamp! Update when needed.
   + 'X-MICROSOFT-CDO-BUSYSTATUS:FREE\r\nEND:VEVENT\r\n';
   //var icalend = 'END:VCALENDAR'
 
@@ -225,8 +239,8 @@ async function handleRequest(request,returnTXT) {
     {
       status: 200,
       headers: {
-        'content-type' : 'text/calendar'
-        //'content-type' : 'text/plain'
+        //'content-type' : 'text/calendar'
+        'content-type' : 'text/plain'
       }
       
 
