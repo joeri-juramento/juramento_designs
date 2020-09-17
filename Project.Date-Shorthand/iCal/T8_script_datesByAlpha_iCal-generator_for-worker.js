@@ -23,6 +23,7 @@ FYI: Go-links can be kept up to date if their destionation changes, hence indire
 
 Regards, J•Juramento
 */
+versionTimestamp = '20200825T204202'; //Only for vEvents; not for script.
 addEventListener('fetch', event => { 
 
     init_primary_vars();  //This wil set currentDate.
@@ -225,7 +226,7 @@ function createICAL (myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,
   + 'SUMMARY:' + shortdate + '\r\n'
   + 'DESCRIPTION:Shortdate of ' + myLongDateFormat + '\r\n' 
   + 'UID:DateByAlpha_' + myLongDateFormat + '_v1.0' + '\r\n'
-  + 'DTSTAMP:' + '20200825T204201' + '\r\n' //in here the timestamp! Update when needed.
+  + 'DTSTAMP:' + versionTimestamp + '\r\n' //in here the timestamp! Update when needed.
   + 'X-MICROSOFT-CDO-BUSYSTATUS:FREE\r\nEND:VEVENT\r\n';
   //var icalend = 'END:VCALENDAR'
 
