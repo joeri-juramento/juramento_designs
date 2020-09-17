@@ -238,11 +238,21 @@ function findDayofWeek (dayToFind,startdate) {
 
   if (dayToFind in [0,1,2,3,4,5,6]) {console.log('daytofind = '+dayToFind)} else {error.console('daytofind is weird: '+dayToFind)};
   
+
   var targetDate = startdate;
   while (targetDate.getDay() != dayToFind)
-    {
-        targetDate = add_day(targetDate,1,false)[6];
+    {   
+        var delta = 1;
+        if (dayToFind == 0)
+        {delta = [0,6,5,4,3,2,1][targetDate.getDay()];}
+        else if (dayToFind == 1) 
+        {delta = [1,0,6,5,4,3,2,1][targetDate.getDay()];}
+        else if (dayToFind == 2)
+        {delta = [2,1,0,6,5,4,3,2][targetDate.getDay()];}
+               
+        targetDate = add_day(targetDate,delta,false)[6]
         console.log('new targetdate: '+targetDate);
+        console.log('delta was: '+delta);
     }
 
   return targetDate;
