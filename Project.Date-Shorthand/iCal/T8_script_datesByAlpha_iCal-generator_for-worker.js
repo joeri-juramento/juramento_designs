@@ -27,11 +27,11 @@ addEventListener('fetch', event => {
 
     init_primary_vars();  //This wil set currentDate.
     
-    //Getting events in the past.
+    //Goal: Event every Monday starting from 6 weeks for 4 weeks.
     var startdate = new Date();
-    var numberOfEvents = 6;   //Number of weeks (because of freq.=7).
+    var numberOfEvents = 4;   //Number of weeks (because of freq.=7).
     var frequency = 7;
-    startdate.setTime(currentDate.getTime() - (numberOfEvents*frequency)*24*60*60*1000); //This will set the date in the past.
+    startdate.setTime(currentDate.getTime() - ((numberOfEvents+2)*frequency)*24*60*60*1000); //This will set the date in the past.
     startdate = findDayofWeek(1,startdate); //finding monday.
     init_second_Vars(startdate); // this will start conversion to orther notations.
     //Preparing work array.
@@ -39,8 +39,9 @@ addEventListener('fetch', event => {
     console.log('fase 1 start date ' + startdate + ' -- inputdata: ' + ical_inputdata) ;
     var icallist = generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"start");
 
-    //Preparing next iteration
+    //Preparing next iteration. Goal: Event every day, for 14 days + today.
     var numberOfEvents = 15; //This sets number of events counting forward from today with today as 1.
+    //var numberOfEvents = 1 //debug
     var frequency = 1;       
     startdate.setTime(currentDate.getTime()); //Today.
     init_second_Vars(startdate);
@@ -49,7 +50,7 @@ addEventListener('fetch', event => {
     console.log('fase 2 start date ' + startdate + ' -- inputdata: ' + ical_inputdata) ;
     icallist += generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"nowrap");
 
-    //Preparing next iteration to weekly.
+    //Preparing next iteration to weekly. 14 days from today, every Monday for 16 weeks.
     var numberOfEvents = 16; //Number of weeks (because of freq.=7).
     //var numberOfEvents = 1; //debugmode
     var frequency = 7;
@@ -65,14 +66,28 @@ addEventListener('fetch', event => {
     if (currentDate.getDay() != 1) {
     var numberOfEvents = 4; //Number of weeks (because of freq.=7).
     var frequency = 7;
-    startdate.setTime(currentDate.getTime() + 21*24*60*60*1000); //Same weekday in 3 weeks. 
+    startdate.setTime(currentDate.getTime() + 21*24*60*60*1000); //Same weekday after 3 weeks. 
     console.log("startdate:" + startdate);
     init_second_Vars(startdate);
     //Preparing work array.
     ical_inputdata = [0,myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,shortdate,currentDate];
     console.log('fase 4 start date ITERATION 4: '+ startdate + ' -- inputdata: ' + ical_inputdata);
-    icallist += generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"end");
+    icallist += generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"nowrap");
     }
+
+    //Preparing next iteration: Every day, starting Monday from two weeks ago, until yesterday.
+    var numberOfEvents = 0; //set later.
+    var frequency = 1;
+    startdate.setTime(currentDate.getTime() - 14*24*60*60*1000);  
+    startdate = findDayofWeek(1,startdate); //finding Monday
+    numberOfEvents = ((currentDate.getTime() - startdate.getTime() ) / 1000 / 60 / 60 / 24);
+    console.log("Delta: "+ numberOfEvents);
+    init_second_Vars(startdate);
+    //Preparing work array.
+    ical_inputdata = [0,myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,shortdate,currentDate];
+    console.log('fase 5 start date ITERATION 5: '+ startdate + ' -- inputdata: ' + ical_inputdata);
+    icallist += generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"end");
+
 
     //Yes, I am aware I need to create another function of the generic behaviour, but for now, 
     //I like the overview and everyfase has subtle differences.
@@ -210,7 +225,7 @@ function createICAL (myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,
   + 'SUMMARY:' + shortdate + '\r\n'
   + 'DESCRIPTION:Shortdate of ' + myLongDateFormat + '\r\n' 
   + 'UID:DateByAlpha_' + myLongDateFormat + '_v1.0' + '\r\n'
-  + 'DTSTAMP:' + '20200825T204200' + '\r\n' //in here the timestamp! Update when needed.
+  + 'DTSTAMP:' + '20200825T204201' + '\r\n' //in here the timestamp! Update when needed.
   + 'X-MICROSOFT-CDO-BUSYSTATUS:FREE\r\nEND:VEVENT\r\n';
   //var icalend = 'END:VCALENDAR'
 
@@ -239,8 +254,8 @@ async function handleRequest(request,returnTXT) {
     {
       status: 200,
       headers: {
-        //'content-type' : 'text/calendar'
-        'content-type' : 'text/plain'
+        'content-type' : 'text/calendar'
+        //'content-type' : 'text/plain'
       }
       
 
