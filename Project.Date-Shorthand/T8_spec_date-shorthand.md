@@ -551,9 +551,9 @@ So sorting is not consistent over all platforms.
 >
 >       
 
-##### Reflecting
+#### Looking at Greek
 
-> Typing these Greek characters on iOS is done via the Greek keyboard. Typing Â by holding A and moving towards the letter Â might be experienced as a simpler interaction than switching the keyboard to Greek. On a windows machine
+> Typing these Greek characters on iOS is done via the Greek keyboard. Typing Â by holding A and moving towards the letter Â might be experienced as a simpler interaction than switching the keyboard to Greek. On a windows machine it is more complicated.
 >
 > In ["[understandable and] usable by average humans"](https://blog.juramento.nl/juramento_designs/Project.Date-Shorthand/T8_spec_date-shorthand.html#understandable-and-uusableu-by-average-humans) requirements are defined about being able to use/type them:
 >
@@ -565,60 +565,127 @@ So sorting is not consistent over all platforms.
 >
 > Though I would like to define: "no alt codes", I did not and explicitly stated what the minimum requirements are. That Â is 'typable' without alt-codes is great, but if it sorts incorrect, that is not ideal.
 >
-> What is more important? Sorting or ease of typing.
+> What is more important? Sorting or ease of typing? 
 >
-> 
+
+#### Implications of using Greek
 
 Let's have a look at what you have to do to type these characters.
 
-| Letter | Windows                                                     | Mac                           | iOS                     |
-| ------ | ----------------------------------------------------------- | ----------------------------- | ----------------------- |
-| Â      | ^ + A = [shift 6]+[shift a]                                 | ^ + A [option + 6] +[shift a] | Hold letter A, select Â |
-| Γ      | Switch to Greek, shift g<br />[Alt (hold)] + [U] [+] [0393] |                               | Switch to Greek, Γ      |
-| Δ      | Switch to Greek, shift d                                    |                               |                         |
-| Θ      | Switch to Greek, shift u                                    |                               |                         |
-| Λ      |                                                             |                               |                         |
-| Ξ      |                                                             |                               |                         |
-| Π      |                                                             |                               |                         |
-| Σ      |                                                             |                               |                         |
-| Φ      |                                                             |                               |                         |
-| Ψ      |                                                             |                               |                         |
-| Ω      |                                                             |                               |                         |
+On Windows you have combo-keys, you have simple alt-codes (alt+nnn) lower then 256, you have alt-codes higher than 256 and you have more sophisticated alt-codes a.k.a. uni-codes like alt U+0939 and you have the Greek keyboard.
 
-> I am very upset that the alt unicodes are so complicated. I did not get the normal 3 digit codes to work on my Windows machine.
+> Experiencing these alt-codes, sometimes you even have to update your regional settings or a registry key to get some of these combinations working. This is unacceptable! It should not be this complicated! Having to resort to the Greek alphabet all together is already a drag and potentially a breaking aspect of the use of shortdates all together, so adding another hoop to jump through will not help.
+
+| Letter | Windows                                                      | Mac                                                          | iOS                            |
+| ------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------ |
+| Â      | ^ + A = [shift 6]+[shift a]                                  | ^ + A [option + 6] +[shift a]                                | Hold letter A, select Â        |
+| Γ      | Switch to Greek, shift g<br />**[Alt] + [226]**<br />[Alt] + [915]<br />[Alt] + [U+0393] | Switch to Greek, shift g<br />Switch to hex, [Opt]+[0393]    | Switch to Greek, choose letter |
+| Δ      | Switch to Greek, shift d<br />[Alt] +  [{n/a}]<br />[Alt] + [923]<br />[Alt] + [U+0394] | Switch to Greek, shift d<br />**[Option] + [j]**<br />Switch to hex, [Opt]+[0394] | dito (= ")                     |
+| Θ      | Switch to Greek, shift u<br />**[Alt] + [233]**<br />[Alt] + [952]<br />[Alt] [u] [+] [0398] | Switch to Greek, shift u<br />Switch to hex, [Opt]+[0398]    | "                              |
+| Λ      | Switch to Greek, shift l (L)<br />[Alt] + [923]              | Switch to Greek, shift l                                     | "                              |
+| Ξ      | Switch to Greek, shift j<br />[Alt] + [926]                  | Switch to Greek, shift j                                     | "                              |
+| Π      | Switch to Greek, shift p<br />[Alt] + [928]                  | Switch to Greek, shift p<br />**[Option] + [shift] + [p]**   | "                              |
+| Σ      | Switch to Greek, shift l**<br />[Alt] + [228]**<br />[Alt] + [931] | Switch to Greek, shift s<br />**[Option] + [w]**             | "                              |
+| Φ      | Switch to Greek, shift f**<br />[Alt] + [232]**<br />[Alt] + [934] | Switch to Greek, shift f                                     | "                              |
+| Ψ      | Switch to Greek, shift y<br />[Alt] + [936]                  | Switch to Greek, **shift c**                                 | "                              |
+| Ω      | Switch to Greek, shift w<br />**[Alt] + [234]**<br />[Alt] + [937] | Switch to Greek, **shift v**<br />**[Option] + [z]**         | "                              |
+
+> **Windows**
+> I am very upset that the alt codes are so complicated. I had to change my region (setting for non-unicode apps only) to get the 3 digit codes to work on my Windows machine. 
+>
+> I got the [Alt] [u] [+] [0398] working via a setting in my registry but NO I do not want to do this. I do not want to remember this awkward and painful combination. The benefits should outweigh any downside.
+>
+> **Mac**
+> On the mac, you can apparently also use the unicode input, you need to add an extra hex-input keyboard though. In the table you can find 3 examples, symmetric to Windows; then I stopped, out of protest.
+>
+> On the mac, not all the letters are on the same position, because that would be to easy :/ - the letters Ψ and Ω are not on the keys y and w like on windows, but on the keys c and v. 
+>
+> On the mac you can also type certain Greek letters with the option key. I used Keyboard viewer where to find them and switched between several keyboards lay-out. With the lay-out US International or ABC (normal) and with option key + optional shift I could type:
+>
+> Σ Π Δ Ω and small Greek letter: μ 
+> (And I almost mistook a German ß [Eszett] for β [beta]. Fun fact: the the alt-code 225 which results in the German one is circulating the internet as being beta, which I can understand as alt+224 result in alpha and alt+226 results in gamma. However, as you can see, they are not the same.)
+>
+
+
+So in conclusion, Windows seems to have 5 short alt-codes below 255 and Mac has 4 option combo's; both platforms have the ability to add an external keyboard providing access to all letters, but the letters on physical keyboards do not change, meaning a onscreen keyboard or user-memory needs to be used to find the appropriate letters. We can use this new information to create another priority of selecting the 5 chars.
+
+For the overview, the small letters:
+
+| Letter | Comment                                                      | Peek |
+| ------ | ------------------------------------------------------------ | ---- |
+| α      | Collision/Overlap via capital A.                                       | A    |
+| β      | Collision via capital B. Possible confusion with ß             | B    |
+| γ      | Similarity, visually with y / Y.                             | Γ    |
+| δ      |                                                              | Δ    |
+| ε      | Collision via capital E.                                       | E    |
+| ζ      | Collision via capital Z.                                       | Z    |
+| η      | Collision via capital H.                                       | H    |
+| θ      | Similarity in description-by-human with Φ. ("Circle/Zero/O with line through it".) ** | Θ    |
+| ι      | Collision via capital I. **                                    | I    |
+| κ      | Collision via capital K. **                                    | K    |
+| λ      |                                                              | Λ    |
+| μ      | Collision via capital M. [Mu]                                  | M    |
+| ν      | Collision via capital N. [Nu]                                  | N    |
+| ξ      |                                                              | Ξ    |
+| ο      | Collision via capital O. **                                    | O    |
+| π      | **                                                           | Π    |
+| ρ      | Collision via capital P. **                                    | P    |
+| σ,ς *  |                                                              | Σ    |
+| τ      | Collision via capital T. **                                    | T    |
+| υ      | Collision via capital Y. [Uspilon]                             | Y    |
+| φ      | Similarity in description-by-human with θ/Θ. ("Circle/Zero/O with line through it".) | Φ    |
+| χ      | Collision via capital X.                                       | X    |
+| ψ      | **                                                           | Ψ    |
+| ω      |                                                              | Ω    |
+
+Take note that:
+
+- There are no 5 smaller letters next to each other that do not have an overlap of their capital equivalent. 
+- ** Letters whose lower-case version looks similar like their uppercase version 
+  - The only letters like this that also do not have overlap are Pi and Psi.
+- 8 Lower case Greek letters remain of you skip all overlapping letters and choose theta or phi.
+
+> Sometimes certain systems do now allow to spell project files, channels, team-names or whatever with capital letters. If we would allow lower case Greek letters into the spec whose upper case letters have a different meaning, that could result in a conflict of meaning, or in other words *ambiguity,* in contexts in which we have no control over letter capitalisation. 
+
+### Scoring letters
+
+Now we have gathered more information we can create a kind of rating per letter:
+
+| Letter | Name | Association | Usability:<br />Typeability | Visually unique | Case Similarity | Novice human description |
+| ----------------- | ----------- | ----------- | ---- | ----------------- | ----------------- | ----------------- |
+|  |  |  | +1 for fast type method<br />0 for default |  | Yes |  |
+| Γ | Gamma upper | Reverse 7              | +1 windows |                 | no |  |
+| Δ | Delta upper | 4                      |             |                 | no | "triangle" |
+| Θ * | Theta upper |                        |             |                 | ish | "circle with line"🔶 |
+| Λ | Lambda upper | 30                     |             |                 | ish | "V upside-down" |
+| Ξ | Xi upper | 3                      |             |                 | no | "Three lines"<br />"Hambuger" |
+| Π | Pi upper |                        |             |                 | ish/yes 🔶 | "" |
+| Σ | Sigma upper | sum                    |             |                 | no | "sumtotal" |
+| Φ * | Phi upper |                        |             |                 | ish | "circle with line"🔶 |
+| Ψ | Psi upper | aquaman                |             |                 | yes 🟩 | "trident" |
+| Ω | Omega upper | superman<br />the last |             |                 | no |              |
+| δ | Delta lower |                        |             |                 | no |              |
+| θ * | Theta |                        |             |                 | ish |              |
+| λ | Lambda lower |                        |             |                 | ish | "Y upside-down" |
+| ξ | Xi lower |                        |             |                 | no |              |
+| π | Pi lower |                        |             |                 | ish |              |
+| σ,ς | Sigma lower |                        |             |                 | no |              |
+| φ * | Phi lower |                        |             |                 | ish |              |
+| ψ | Psi lower |                        |             |                 | yes 🟩 |              |
+| ω | Omega lower |                        |             |                 | no  |          |
+
+\* because of similarity in how people could describe these letters, we want to prevent collisions and *"/Tee Naine Oow with line/"* needs to be enough to communicate the date. Not everybody might know the formal name of letters. 
+
+yes🟩💚🔶🔴
 
 
 
-If we take another look at the small letters:
 
-| Letter | Windows | Mac  | iOS                              |
-| ------ | ------- | ---- | -------------------------------- |
-| α      |         |      | switch to greek, turn of caps, α |
-| β      |         |      |                                  |
-| γ      |         |      |                                  |
-| δ      |         |      |                                  |
-| ε      |         |      |                                  |
-| ζ      |         |      |                                  |
-| η      |         |      |                                  |
-| θ      |         |      |                                  |
-| ι      |         |      |                                  |
-| κ      |         |      |                                  |
-| λ      |         |      |                                  |
-| μ      |         |      |                                  |
-| ν      |         |      |                                  |
-| ξ      |         |      |                                  |
-| ο      |         |      |                                  |
-| π      |         |      |                                  |
-| ρ      |         |      |                                  |
-| σ,ς *  |         |      |                                  |
-| τ      |         |      |                                  |
-| υ      |         |      |                                  |
-| φ      |         |      |                                  |
-| χ      |         |      |                                  |
-| ψ      |         |      |                                  |
-| ω      |         |      |                                  |
 
-## Meta
+
+
+
+# Meta
 
 | Attribute                    | Value                                     |
 | ---------------------------- | ----------------------------------------- |
