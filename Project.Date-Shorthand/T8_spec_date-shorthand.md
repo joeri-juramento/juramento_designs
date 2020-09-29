@@ -1,11 +1,11 @@
-# Short date notation | Shorthand Requirement & Spec
+<font size="6">**Short date notation | Shorthand Requirement & Spec**</font>
 
 
 [TOC]
 ------
 *The following requirements where defined:*
 
-### Intro
+# Problem introduction
 
 Original dates - in various order - take up the following space in file and screen space:
 
@@ -49,7 +49,7 @@ So the requirement:
 
 
 
-## Requirements
+# Requirements
 
 <u>Create a date notation that is as short as possible without too much loss of information which remains sortable (chronologically correct) by system and understandable by average humans.</u>
 
@@ -59,7 +59,7 @@ Breaking down the requirement:
 
 
 
-#### "a date notation that is as short as possible"
+## "a date notation that is as short as possible"
 
 We can use the alphabet as numbers to prevent needing to characters above the number 9. Furthermore we can use accents for numbers above the number 26. 
 
@@ -67,7 +67,7 @@ We can use the alphabet as numbers to prevent needing to characters above the nu
 
 ABCDEFGHIJKLMNOPQRSTUVWXYZ are 26 letters. A is the 1st letter; Z is the 26th letter. I am aware other languages have different lengths. New English and Dutch have 26 1-digit-char letters.
 
-##### Shorting months
+### Shorting months
 
 I can spare a month digit by writing October, November, December as J,K,L:
 
@@ -86,7 +86,7 @@ One could write all months as letters; but for quick recognition, I keep 1-9 wit
 
 
 
-##### Shortening days
+### Shortening days
 
 For 1-31 days I normally need 2 digits, from the alphabet I have a 1 char sign up to 26. I can extend this with a unique char for 27 up to 31. By going down this path an related requirement was identified. Usable by humans. That refers to being to enter the letter on a keyboard or mobile phone without alt-codes.
 
@@ -101,7 +101,7 @@ For 1-31 days I normally need 2 digits, from the alphabet I have a 1 char sign u
 | 30     | Ô      |
 | 31     | Û      |
 
-##### Shortening years
+### Shortening years
 
 Now we have defined a spec for numbers 1 - 31, be can also re-use that for years to save a digit up to 2031.
 
@@ -126,14 +126,14 @@ Obviously there are more special characters, but the Û sorts pretty at the end 
 
 
 
-#### "without too much loss of information"
+## "without too much loss of information"
 
 - I need the ability to write dates further then 2029, preferably up to 2099 which is over 79 years from this year (2020).
 - I would like the ability to quickly recognize the month.
 
 
 
-#### "which remains sortable (chronologically correct) by system"
+## "which remains sortable (chronologically correct) by system"
 
 20-08-2020_Filename.ext
 25-01-2018_Filename.ext
@@ -149,13 +149,13 @@ If sorted on filename from old to new, the R1Y file would be correctly listed ab
 
 
 
-#### "<u>understandable</u> [and usable] by average humans"
+## "<u>understandable</u> [and usable] by average humans"
 
 This means the date does not need be calculated due to compressed information like the first iteration. (28.22)
 
 > Yesterday, I did not know what the 20th letter from the alphabet was. The position of a letter in the alphabet is not knowledge ready at hand (for me); but it is deductible for those who have not memorized it and fairly universal, even if your main (Latin-based) language has another alphabet. 
 
-##### Understanding vs knowing the alphabet
+### Understanding vs knowing the alphabet
 
 I recognize that this requires learning the positions of 26 letters plus 6 extra accented-letters.
 
@@ -177,7 +177,7 @@ None of these notation variation violates the requirement as defined. Dates are 
 
 
 
-#### "[understandable and] <u>usable</u> by average humans"
+## "[understandable and] <u>usable</u> by average humans"
 
 This also connects to the previous section. Most people will have access to an English alphabet index order and it could be learned.
 
@@ -211,19 +211,19 @@ Furthermore I choose the 27-31st letters on the A-Z row below to maintain sortab
 >
 > These side notes are here to show a process of thought and can be continue after additional testing. Read the latest spec to find out the status quo.
 >
-> ##### Comments added after a while:
+### Retrospective comments:
 >
 > Argument 5 seems to be much stronger than anticipated. I experienced it about talking about the spec with others (n=2). "I used the vowels with little roof" [NL: "Klinkers met een dakje"] for the missing numbers (which also maintains sortability), is easier to communicate than "I used the letter N with tilde for 29 and the rest are vowels".  //T8Z
 
 
 
-##### Leap day
+### Leap day
 
 There is one happy coincidental extension point of the spec. If one would want a specific sign for leap day, one could use Ñ or Î depending on which is chosen as the default and which remains.
 
 
 
-## Spec v0.9.1
+# Spec v0.9.1
 
 
 
@@ -239,7 +239,7 @@ We define a 3 to 4 character date notation system with an possible extension goi
 
    
 
-### First position representing the year X--
+## First position representing the year X--
 
 1. For the first 31 years the first position presents that last two digits of a year. The millennium and century are omitted. 
 2. After the first 31 years the two first positions are identical to the last two digits of a year unless the spec is updated.
@@ -259,7 +259,7 @@ From year 2032 on, the notation switches back to original digits, unless the spe
 
 > (*Ñ if the discussion of 29 progresses towards Ñ as a special notation for leap day the 29th, it makes less sense to also keep using it also as an alternative to 29 in the years.)
 
-### Second position representing the month -X-
+## Second position representing the month -X-
 
 1. The second last position represents the month and a dualistic notation form exists. 
 2. For the months 1-9 (Jan-Sept) it is recommended to use the actual singular digits and not A-H. (For faster human recognition.)
@@ -283,7 +283,7 @@ From year 2032 on, the notation switches back to original digits, unless the spe
 
 
 
-### Last position representing the day of month --X
+## Last position representing the day of month --X
 
 1. The last position represents the day number as in day of the month 1 to 31.
 2. The alphabet letters represent the day of the month based on their index number in the (English) alphabet.
@@ -313,7 +313,7 @@ From year 2032 on, the notation switches back to original digits, unless the spe
 
 
 
-### Full examples - All positions
+## Full examples - All positions
 
 Examples of dates:
 
@@ -330,7 +330,7 @@ Examples of dates:
 
 
 
-### Range of spec
+## Range of spec
 
 | Datum YYYY-MM-DD    | Datum shorthand     | Commenting on example                                        |
 | ------------------- | ------------------- | ------------------------------------------------------------ |
@@ -349,7 +349,7 @@ Examples of dates:
 
 
 
-## Implementation vBeta
+# Implementation vBeta
 
 > I started using it on my own file system and my paper notes; the damn date field is finally large enough for my handwriting ;).
 >
@@ -357,7 +357,7 @@ Examples of dates:
 
 
 
-### Today Site
+## Today Site
 
 At https://go.juramento.nl/today you can find the shorthand date of today. Iframe below:
 
@@ -371,25 +371,25 @@ It is running a script on a Cloudflare worker. The date is corrected for CEST ti
 
 
 
-### Calendar
+## Calendar
 
 > After I got the hang of some JavaScript date operations and my conversion, I asked myself: what can I do if I really want to rely on the short date system? I argued that I needed some integration with my current digital system. I tried to use the 'Alternative calendar' feature in Windows and 'Alternative Timezone' but that is not really for a Custom Time Date Notation like the above, so I settled on a integration with my calendar via iCal. I argued that I want to be able to update the events quickly if the spec ever got updated so I didn't want a one-time export which could expire.
 >
 > So I looked into *.ics file which is a text-based format which a Cloudflare worker could generate and serve.
 
-#### Dynamic rolling horizon of events
+### Dynamic rolling horizon of events
 
 > I don't need 365 events in my calendar. I just need some visible support when I am learning the AlphabetÐates. Remember it is a shorthand notation form, not an complete replacement of the actual date if that makes any sense at this point.
 
 Based on today's date this dynamic calendar will move forward with the time into the future, adding new events and removing old ones. Every event will have the shorthand date is its subject, for example "T8Z". No reminders are added (but beware of your client) and time is marked as free. The iCal spec was followed. [iCalender.org's validator](https://icalendar.org/validator.html?url=https://blog.juramento.nl/shortdates/AlpabetDates.ics) really helped.
 
-##### iCal desires (v1.0)
+#### iCal desires (v1.0)
 
 1. I want 6 weeks in the past from today with only a weekly event on Monday. (First day of the week in NL.)
 2. I want 14 days from today with a daily event.
 3. After the first 2 weeks from today, I want 16 weeks with weekly events on Monday.
 
-##### iCal calendar link
+#### iCal calendar link
 
 You can subscribe to the iCal calendar with this URL:
 
@@ -397,7 +397,7 @@ https://blog.juramento.nl/shortdates/AlpabetDates.ics
 
 If you download and save the file, you get an export which will not update itself as far as I know. If you import two offline files, you should not get double events due to an unique UID in every event. If you really want to see, **I strongly recommend subscribing instead of downloading** so the calendar is automatically updated.
 
-##### iCal generator script
+#### iCal generator script
 
 At the moment of writing you cannot customize the number of events, unless you run your own script. You can find it in the repository:
 
@@ -405,9 +405,9 @@ https://go.juramento.nl/source-shortdates-ical
 
 
 
-## Discussion
+# Discussion
 
-### Issue sorting Â-Ô<Z
+## Issue sorting Â-Ô<Z
 
 > Unfortunately the accented letters representing numbers 27 - 31 do not sort as desired. It remains unclear how this got passed the preliminary tests, because it makes sense Â would be sorted after A and not after Z; suspected is that the method of measuring (using terminal X which did sort as desired) was the cause it did go unnoticed at first.
 >
@@ -445,7 +445,7 @@ One the requirements is having this sortability in alphabetical order which matc
 
 So sorting is not consistent over all platforms. 
 
-#### Searching
+### Searching for solutions
 
 > Now I need to find 5 new symbols/letters representing the numbers 27,28,29,30,31, looking for symbols/letters that sort better than Â-Ô vowels. These are my thoughts:
 >
@@ -468,7 +468,7 @@ So sorting is not consistent over all platforms.
 >
 >   
 
-##### The Greek alphabet:
+### The Greek alphabet
 
 | Α    | α    | [alfa](https://nl.wikipedia.org/wiki/Alfa_(letter))   | Ν    | ν    | [nu](https://nl.wikipedia.org/wiki/Nu_(letter))       |
 | ---- | ---- | ----------------------------------------------------- | ---- | ---- | ----------------------------------------------------- |
