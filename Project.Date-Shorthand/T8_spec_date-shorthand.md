@@ -389,12 +389,15 @@ Based on today's date this dynamic calendar will move forward with the time into
 2. I want 14 days from today with a daily event.
 3. After the first 2 weeks from today, I want 16 weeks with weekly events on Monday.
 
-##### Webcal / iCal link
+##### iCal calendar link
 
-You can subscribe to the iCal calendar with this URL: https://blog.juramento.nl/shortdates/AlpabetDates.ics 
+You can subscribe to the iCal calendar with this URL:
+
+https://blog.juramento.nl/shortdates/AlpabetDates.ics 
+
 If you download and save the file, you get an export which will not update itself as far as I know. If you import two offline files, you should not get double events due to an unique UID in every event. If you really want to see, **I strongly recommend subscribing instead of downloading** so the calendar is automatically updated.
 
-#### iCal generator script
+##### iCal generator script
 
 At the moment of writing you cannot customize the number of events, unless you run your own script. You can find it in the repository:
 
