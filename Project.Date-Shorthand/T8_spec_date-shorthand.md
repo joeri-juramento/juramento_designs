@@ -405,14 +405,227 @@ https://go.juramento.nl/source-shortdates-ical
 
 
 
+## Discussion
+
+### Issue sorting Â-Ô<Z
+
+> Unfortunately the accented letters representing numbers 27 - 31 do not sort as desired. It remains unclear how this got passed the preliminary tests, because it makes sense Â would be sorted after A and not after Z; suspected is that the method of measuring (using terminal X which did sort as desired) was the cause it did go unnoticed at first.
+>
+> The incorrect sorting was noticed after creating a file with 'T9Â' and it got sorted on top. So this list:
+>
+> - T9A
+> - T9B
+> - T9Z
+> - T9Â
+> - T9Ê
+>
+> Will sort like:
+>
+> - T9A
+> - T9Â
+> - T9B
+> - T9Ê
+> - T9Z
+>
+> 
+
+One the requirements is having this sortability in alphabetical order which matches the chronical order of days. After taking another look at sorting the following was observed where found:
+
+1. Windows Explorer sorts Â before Z after A.
+2. Mac Finder sorts Â before Z after A.
+3. Windows cmd shorts Â before Z after A.
+4. Mac zsh/fish sorts Â AFTER Z. 
+5. Windows Explorer & Mac Finder sort 'T90' after ' whereas they sort 'TJ0' BEFORE 'TJA'. (it reads the '90', hence,we use T9- and no 0.)
+6. Windows cmd & Mac zsh/fish sort ' T90' before 'T9A'  and 'TJ0' also before 'TJA'. (Issue for 2000?)
+7. Windows Explorer, cmd and Mac sorts the old 27th English letter '&' before the A and before the '-'
+8. Mac Finder sorts '&' before the A but after the '-'
+9. iOS sync app sorts Â AFTER Z.
+10. iOS native files app sorts Â before Z after A.
+11. Sorting in Notepad++ sorts Â AFTER Z.
+
+So sorting is not consistent over all platforms. 
+
+#### Searching
+
+> Now I need to find 5 new symbols/letters representing the numbers 27,28,29,30,31, looking for symbols/letters that sort better than Â-Ô vowels. These are my thoughts:
+>
+> - Greek Alphabet like used in hurricane naming.
+>   - Some Greek capitals have overlap and cannot be reused.
+>   - Some Greek letters have lookalikes and should not be reused.
+>   - Expected penalty in usability as typing these letters might be harder.
+>
+> - Shift the number, so shift 7 = &, shift 8 = * etcetera.
+>   
+>   - On a physical keyboard, the bridge from 27 to '&' might easy, the sorting of the symbols is not structured.
+>   
+> - Other characters on a keyboard 
+>
+>   - No internal sorting one can infer. (so far I found)
+>
+>   ```
+>   - + */( ) & ^ % $ # @ ! )
+>   ```
+>
+>   
+
+##### The Greek alphabet:
+
+| Α    | α    | [alfa](https://nl.wikipedia.org/wiki/Alfa_(letter))   | Ν    | ν    | [nu](https://nl.wikipedia.org/wiki/Nu_(letter))       |
+| ---- | ---- | ----------------------------------------------------- | ---- | ---- | ----------------------------------------------------- |
+| Β    | β    | [bèta](https://nl.wikipedia.org/wiki/Bèta_(letter))   | Ξ    | ξ    | [xi](https://nl.wikipedia.org/wiki/Xi_(letter))       |
+| Γ    | γ    | [gamma](https://nl.wikipedia.org/wiki/Gamma_(letter)) | Ο    | ο    | [omikron](https://nl.wikipedia.org/wiki/Omikron)      |
+| Δ    | δ    | [delta](https://nl.wikipedia.org/wiki/Delta_(letter)) | Π    | π    | [pi](https://nl.wikipedia.org/wiki/Pi_(letter))       |
+| Ε    | ε    | [epsilon](https://nl.wikipedia.org/wiki/Epsilon)      | Ρ    | ρ    | [rho](https://nl.wikipedia.org/wiki/Rho_(letter))     |
+| Ζ    | ζ    | [zèta](https://nl.wikipedia.org/wiki/Zèta)            | Σ    | σς   | [sigma](https://nl.wikipedia.org/wiki/Sigma_(letter)) |
+| Η    | η    | [èta](https://nl.wikipedia.org/wiki/Èta)              | Τ    | τ    | [tau](https://nl.wikipedia.org/wiki/Tau_(letter))     |
+| Θ    | θ    | [thèta](https://nl.wikipedia.org/wiki/Thèta)          | Υ    | υ    | [ypsilon](https://nl.wikipedia.org/wiki/Ypsilon)      |
+| Ι    | ι    | [jota](https://nl.wikipedia.org/wiki/Jota_(letter))   | Φ    | φ    | [phi](https://nl.wikipedia.org/wiki/Phi_(letter))     |
+| Κ    | κ    | [kappa](https://nl.wikipedia.org/wiki/Kappa_(letter)) | Χ    | χ    | [chi](https://nl.wikipedia.org/wiki/Chi_(letter))     |
+| Λ    | λ    | [lambda](https://nl.wikipedia.org/wiki/Lambda)        | Ψ    | ψ    | [psi](https://nl.wikipedia.org/wiki/Psi_(letter))     |
+| Μ    | μ    | [mu](https://nl.wikipedia.org/wiki/Mu_(letter))       | Ω    | ω    | [omega](https://nl.wikipedia.org/wiki/Omega_(letter)) |
+
+> Zooming in on Greek alphabet: (Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω)
+>
+> - Choosing alpha-epsilon **capital** letters
+>   - Pro: simply just the 5 first letters of the alphabet.
+>   - Con: 3 of 5 Capitals have overlap and cannot be used.
+> - Choosing alpha-epsilon **small** letters
+>   - Pro: simply just the 5 first letters of the alphabet.
+>   - Con: The small letter alpha is not always that recognisable; font-depended.
+>   - Con: The small letter gamma looks a lot like Y (T9γ could be confused with T9Y)
+>   - Con: Inconsistent with other dates who use capital letters.
+>   - Con: if for some reason a filename is displayed with capitals, the actual date would change its meaning due to overlap. 
+> - Choosing omega-ypsilon **capital** letters
+>   - Pro: last 5 letters of Greek alphabet (last numbers of Month).
+>   - Con: X (chi) is similar to --X thus 24th and cannot be used.
+>   - Con: Y (ypsilon) is similar to --Y thus 25th and cannot be used.
+> - Choosing the five first **capital** letters that do not overlap. (Γ,Δ,Θ,Λ,Ξ)
+>   - Pro: one can look up these letters and order.
+>   - Con: there are several 5-Greek-capital-letter-combinations, why this one?
+>     - It is the first 5.
+>
+> From here we explore more advanced (or possible far-fetched combo's):
+>
+> The Greek alphabet as 10 unique capital letters: (Γ Δ Θ Λ Ξ Π Σ Φ Ψ Ω)
+>
+> - Choosing five capital letters on a iOS Greek **keyboard** in order of appearance: 
+>
+>   - ΘΠΣΔΦ (sorted: ΔΘΠΣΦ)
+>   - Now start at thèta (Θ) but skip any letter that is sorted before the last:
+>   - ΘΠΣΦΨ (sorted the same, obviously)
+>
+> - Choose 5 capital letters that have any **association** with the numbers 27-31.
+>
+>   - (FYI: the Greek modern alphabet has 24 letters.)
+>
+>   - The 7th letter is Èta (H) which conflicts with --H.
+>
+>   - The 17th letter is Rho (P) which conflicts with --P
+>
+>   - (FYI: [Greek numerals](https://en.wikipedia.org/wiki/Greek_numerals) have one letter for 1-9 and 10,20,...,100 and they combine for numerals in between.)
+>
+>   - The Greek numeral of 30 can be written as Λ'  (lambda).
+>
+>     - Pro: using this letter to represent --Λ the 30th date would work.
+>     - Con: This implies that the 27, 28 and 29th representation have to exist before Λ in the alphabet to maintain sortability.
+>       - Pro: You cannot do this wrong, because there are only (capital) 3 letters in front of Λ matching the requirements.
+>       - Pro: unplanned, it also results in choosing the first available 5.
+>     - Con: I don't think it is basic knowledge that Λ' means 30. 
+>       - Counter: Vowel --Ô being 30 was also taught and had only the circular reference to a round number.
+>     - Con: Lambda and Delta are look-a-like (Δ Λ) which can cause confusion. 
+>     - Con: this would make it harder to use omega (Ω) as the last number 31.
+>     - Pro: One could use the remaining letters to extend the years of the spec. Ψ-- = 2035.
+>     - Con: if for some reason the filename is represented as small letters, the letter gamma might be confused with a small letter y. 
+>
+>   - The last Greek letter is omega Ω; the association would be last letter is last date.
+>
+>     - Pro: Easy to recognize, being the last.
+>     - Con: 31 is not always the last day of the month since 30, 29 and 28 can sometimes all be the last day of the month.
+>       - Alternative: omega could also be used as joker for *last day* like Ž once was and have only a contextual number depending on the month. --Ω = error; Ω = 30th of Sept.
+>
+>   - Looking at form, the gamma Γ, looks like a mirror 7. (--Γ would be 27.)
+>
+>     - Proxy-Pro: this is fits the the lambda = 30 path.
+>
+>     - Pro: form could help remembering it as a mnemonic.
+>
+>       
+
+##### Reflecting
+
+> Typing these Greek characters on iOS is done via the Greek keyboard. Typing Â by holding A and moving towards the letter Â might be experienced as a simpler interaction than switching the keyboard to Greek. On a windows machine
+>
+> In ["[understandable and] usable by average humans"](https://blog.juramento.nl/juramento_designs/Project.Date-Shorthand/T8_spec_date-shorthand.html#understandable-and-uusableu-by-average-humans) requirements are defined about being able to use/type them:
+>
+> > - I need to be able to enter the char via a keyboard on PC.
+> > - I need to be able to enter the char via a keyboard on mobile phone.
+> > - I need to be able to write down the char fairly easily.
+> > - I need to be able to differentiate the letters from each other.
+> > - I need to be able to read a shorthand notation and understand it as a date. 
+>
+> Though I would like to define: "no alt codes", I did not and explicitly stated what the minimum requirements are. That Â is 'typable' without alt-codes is great, but if it sorts incorrect, that is not ideal.
+>
+> What is more important? Sorting or ease of typing.
+>
+> 
+
+Let's have a look at what you have to do to type these characters.
+
+| Letter | Windows                                                     | Mac                           | iOS                     |
+| ------ | ----------------------------------------------------------- | ----------------------------- | ----------------------- |
+| Â      | ^ + A = [shift 6]+[shift a]                                 | ^ + A [option + 6] +[shift a] | Hold letter A, select Â |
+| Γ      | Switch to Greek, shift g<br />[Alt (hold)] + [U] [+] [0393] |                               | Switch to Greek, Γ      |
+| Δ      | Switch to Greek, shift d                                    |                               |                         |
+| Θ      | Switch to Greek, shift u                                    |                               |                         |
+| Λ      |                                                             |                               |                         |
+| Ξ      |                                                             |                               |                         |
+| Π      |                                                             |                               |                         |
+| Σ      |                                                             |                               |                         |
+| Φ      |                                                             |                               |                         |
+| Ψ      |                                                             |                               |                         |
+| Ω      |                                                             |                               |                         |
+
+> I am very upset that the alt unicodes are so complicated. I did not get the normal 3 digit codes to work on my Windows machine.
+
+
+
+If we take another look at the small letters:
+
+| Letter | Windows | Mac  | iOS                              |
+| ------ | ------- | ---- | -------------------------------- |
+| α      |         |      | switch to greek, turn of caps, α |
+| β      |         |      |                                  |
+| γ      |         |      |                                  |
+| δ      |         |      |                                  |
+| ε      |         |      |                                  |
+| ζ      |         |      |                                  |
+| η      |         |      |                                  |
+| θ      |         |      |                                  |
+| ι      |         |      |                                  |
+| κ      |         |      |                                  |
+| λ      |         |      |                                  |
+| μ      |         |      |                                  |
+| ν      |         |      |                                  |
+| ξ      |         |      |                                  |
+| ο      |         |      |                                  |
+| π      |         |      |                                  |
+| ρ      |         |      |                                  |
+| σ,ς *  |         |      |                                  |
+| τ      |         |      |                                  |
+| υ      |         |      |                                  |
+| φ      |         |      |                                  |
+| χ      |         |      |                                  |
+| ψ      |         |      |                                  |
+| ω      |         |      |                                  |
+
 ## Meta
 
-| Attribute                    | Value                                      |
-| ---------------------------- | ------------------------------------------ |
-| Starting date                | T8- \| 2020-08                             |
-| Last formal publish update   | T8Z \| 2020-08-26 \|^\| Check git commits: |
-| Source location of this page | https://go.juramento.nl/source-shortdates  |
-| Permalink to published page  | https://go.juramento.nl/shortdates         |
+| Attribute                    | Value                                     |
+| ---------------------------- | ----------------------------------------- |
+| Starting date                | T8- \| 2020-08                            |
+| Last formal publish update   | T9- \| 2020-09 \|^\| Check git commits:   |
+| Source location of this page | https://go.juramento.nl/source-shortdates |
+| Permalink to published page  | https://go.juramento.nl/shortdates        |
 
 
 
