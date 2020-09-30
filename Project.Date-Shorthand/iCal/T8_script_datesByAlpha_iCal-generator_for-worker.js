@@ -23,33 +23,36 @@ FYI: Go-links can be kept up to date if their destionation changes, hence indire
 
 Regards, J•Juramento
 */
+versionTimestamp = '20200825T204202'; //Only for vEvents; not for script.
 addEventListener('fetch', event => { 
-
     init_primary_vars();  //This wil set currentDate.
     
     //Goal: Event every Monday starting from 6 weeks for 4 weeks.
     var startdate = new Date();
     var numberOfEvents = 4;   //Number of weeks (because of freq.=7).
     var frequency = 7;
-    startdate.setTime(currentDate.getTime() - ((numberOfEvents+2)*frequency)*24*60*60*1000); //This will set the date in the past.
+    startdate.setTime(currentDate.getTime() - ((numberOfEvents+3)*frequency)*24*60*60*1000); //This will set the date in the past.
     startdate = findDayofWeek(1,startdate); //finding monday.
     init_second_Vars(startdate); // this will start conversion to orther notations.
     //Preparing work array.
     ical_inputdata = [0,myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,shortdate,currentDate];
     console.log('fase 1 start date ' + startdate + ' -- inputdata: ' + ical_inputdata) ;
     var icallist = generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"start");
-
-    //Preparing next iteration. Goal: Event every day, for 14 days + today.
-    var numberOfEvents = 15; //This sets number of events counting forward from today with today as 1.
-    //var numberOfEvents = 1 //debug
+    
+    //Preparing next iteration. Goal: Event every day, for 14-20 days + today.
+    var numberOfEvents = 0; //set later after calc.
     var frequency = 1;       
-    startdate.setTime(currentDate.getTime()); //Today.
+    startdate.setTime(currentDate.getTime() + 14*24*60*60*1000); //For calc delta.
+    startdate = findDayofWeek(0,startdate); //finding Sunday
+    numberOfEvents = (1 + ((startdate.getTime() - currentDate.getTime() ) / 1000 / 60 / 60 / 24));
+    console.log("Delta F2 , numberOfEvents: "+ (numberOfEvents - 1) + ","+ numberOfEvents);
+    startdate.setTime(currentDate.getTime()); //Starting from today.  
     init_second_Vars(startdate);
     //Preparing work array.
     ical_inputdata = [0,myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,shortdate,currentDate];
     console.log('fase 2 start date ' + startdate + ' -- inputdata: ' + ical_inputdata) ;
     icallist += generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"nowrap");
-
+    
     //Preparing next iteration to weekly. 14 days from today, every Monday for 16 weeks.
     var numberOfEvents = 16; //Number of weeks (because of freq.=7).
     //var numberOfEvents = 1; //debugmode
@@ -75,13 +78,13 @@ addEventListener('fetch', event => {
     icallist += generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"nowrap");
     }
 
-    //Preparing next iteration: Every day, starting Monday from two weeks ago, until yesterday.
+    //Preparing next iteration: Past. Every day, starting Monday from two weeks ago, until yesterday.
     var numberOfEvents = 0; //set later.
     var frequency = 1;
-    startdate.setTime(currentDate.getTime() - 14*24*60*60*1000);  
+    startdate.setTime(currentDate.getTime() - 21*24*60*60*1000);  
     startdate = findDayofWeek(1,startdate); //finding Monday
     numberOfEvents = ((currentDate.getTime() - startdate.getTime() ) / 1000 / 60 / 60 / 24);
-    console.log("Delta: "+ numberOfEvents);
+    console.log("Delta F5: "+ numberOfEvents);
     init_second_Vars(startdate);
     //Preparing work array.
     ical_inputdata = [0,myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,shortdate,currentDate];
@@ -225,7 +228,7 @@ function createICAL (myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,
   + 'SUMMARY:' + shortdate + '\r\n'
   + 'DESCRIPTION:Shortdate of ' + myLongDateFormat + '\r\n' 
   + 'UID:DateByAlpha_' + myLongDateFormat + '_v1.0' + '\r\n'
-  + 'DTSTAMP:' + '20200825T204201' + '\r\n' //in here the timestamp! Update when needed.
+  + 'DTSTAMP:' + versionTimestamp + '\r\n' //see global var on top.
   + 'X-MICROSOFT-CDO-BUSYSTATUS:FREE\r\nEND:VEVENT\r\n';
   //var icalend = 'END:VCALENDAR'
 
@@ -238,11 +241,21 @@ function findDayofWeek (dayToFind,startdate) {
 
   if (dayToFind in [0,1,2,3,4,5,6]) {console.log('daytofind = '+dayToFind)} else {error.console('daytofind is weird: '+dayToFind)};
   
+
   var targetDate = startdate;
   while (targetDate.getDay() != dayToFind)
-    {
-        targetDate = add_day(targetDate,1,false)[6];
+    {   
+        var delta = 1;
+        if (dayToFind == 0)
+        {delta = [0,6,5,4,3,2,1][targetDate.getDay()];}
+        else if (dayToFind == 1) 
+        {delta = [1,0,6,5,4,3,2,1][targetDate.getDay()];}
+        else if (dayToFind == 2)
+        {delta = [2,1,0,6,5,4,3,2][targetDate.getDay()];}
+               
+        targetDate = add_day(targetDate,delta,false)[6]
         console.log('new targetdate: '+targetDate);
+        console.log('delta was: '+delta);
     }
 
   return targetDate;
