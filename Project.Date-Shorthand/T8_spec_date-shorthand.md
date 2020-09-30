@@ -676,11 +676,60 @@ Now we have gathered more information we can create a kind of rating per letter:
 
 \* because of similarity in how people could describe these letters, we want to prevent collisions and *"/Tee Naine Oow with line/"* needs to be enough to communicate the date. Not everybody might know the formal name of letters. 
 
-yes🟩💚🔶🔴
+\** association is primarily focused on numerical associations, but others are welcome to get an idea.
 
+\*3 - Tested in Windows Explorer; you brain auto completes T9Ξ to T9E and on top of that, they do look similar.
 
+🧪 requires verification if this would ever be used by anyone this way. Other items in this column heave been verified by third party, but just n=1; to get an idea.
 
+🟩 green square: +1
 
+🔶 orange diamond: 0,5 ; 2x = 0,75
+
+🔴 red circle ; nope / not good enough
+
+> Why not one form? So people who are colour blind can see what I am doing. - That I don't expect visitors does not matter. #Design-brain-training.
+
+Best scoring letters in order based on current information (v1):
+
+Γ Δ Θ* Ππ Σ Φ* Ψψ Ω of which I should choose only one of *; which both scored the lowest.
+
+| Number                                                       | List 1 | List 2 | List 3 | List 4 | List 5  | List inv. | List wind. | List mac |
+| ------------------------------------------------------------ | ------ | ------ | ------ | ------ | ------- | --------- | ---------- | -------- |
+| 27                                                           | Γ      | Γ      | Γ      | Γ      | Γ       | Π         | Γ          | Δ        |
+| 28                                                           | Δ      | Δ      | Δ      | Δ      | Δ       | Σ         | Θ          | Π (!)    |
+| 29                                                           | Θ      | Θ      | Π      | Σ      | Σ       | Φ         | Σ          | π (!)    |
+| 30                                                           | Π      | Σ      | Σ      | Φ      | Φ       | Ψ         | Φ          | Σ        |
+| 31                                                           | Σ      | Ψ      | Φ      | Ψ      | Ω (Ψ)   | Ω         | Ω          | Ω        |
+| last day                                                     | Ω      | Ω      | Ω      | Ω      | - (Ω)   | -         | -          | -        |
+|                                                              |        |        |        |        |         |           |            |          |
+| not used                                                     | Ψ      | Π      | Ψ      | Π      | Θ Π Ψ   | Γ Δ       | Δ Π Ψ      | Γ Ψ      |
+| mandatory excluded                                           | Φ      | Φ      | Θ      | Θ      | -       | Θ         | ignored    | ΘΦ       |
+| Status                                                       |        |        |        |        |         |           | 🔶          | 🔴        |
+| Ψ vs Π: Π wins due to typeability on mac.                    | +1     |        | +1     |        |         | +0.5      | +0.5       | -        |
+| Ψ vs Π: Ψ wins due to easy description.                      |        | +1     |        | +1     | +0 (1)  | +0.5      | +0.5       | -        |
+| Ψ vs Π: Ψ wins on case similarity.                           |        | +1     |        | +1     | +0 (1)  | +0.5      | +0.5       | -        |
+| Φ vs Θ: equal in every area.<br />fyi: some font-dependencies. | -      | -      | -      | -      | -       | -         | -          | -        |
+| typeability quick on windows                                 | +4     | +4     | +4     | +4     | +4      | +3        | +5         | -        |
+| typeability on keyboard with Greek lay-out on mac&win left-hand only | +3/5   | +3/5   | +4/6   | +4/5   | +5/5    | +3/5      | +4/5       | -        |
+| Subtotal A                                                   | 8      | 9      | 9      | 10     | 9 (11)  | 7.5       | 10.5       |          |
+| Ω vs Ψ: equal on most but Ψ has easier novice-description    |        |        |        |        | +0 (1)  |           |            |          |
+| Ω vs Ψ: Ω has better keyboard support on mac and windows     |        |        |        |        | +2 (0)  |           |            |          |
+| Subtotal B                                                   |        |        |        |        | 11 (11) |           |            |          |
+
+#### Preliminarily conclusion
+
+> Which combination is best? List 5 has the most points, but with 31 = --Ω or --Ψ. - I think that being to use/type it is a tad more important than being able to communicate the letter for a novice. For me personally it is a mute point because I recognize the omega letter, however, in general we may be able to claim that using the shorthand date is a tad more important than communication about the date. Let's give it a go in the iCal and let's see if there are any unforeseen surprises.
+>
+> | Letter | Date       |
+> | ------ | ---------- |
+> | T9Γ    | 2020-09-27 |
+> | T9Δ    | 2020-09-28 |
+> | Τ9Σ    | 2020-09-29 |
+> | Τ9Φ    | 2020-09-30 |
+> | Τ9Ω    | 2020-09-31 |
+>
+> 
 
 
 
