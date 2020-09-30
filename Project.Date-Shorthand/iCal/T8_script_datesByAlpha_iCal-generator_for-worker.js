@@ -228,7 +228,7 @@ function createICAL (myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,
   + 'SUMMARY:' + shortdate + '\r\n'
   + 'DESCRIPTION:Shortdate of ' + myLongDateFormat + '\r\n' 
   + 'UID:DateByAlpha_' + myLongDateFormat + '_v1.0' + '\r\n'
-  + 'DTSTAMP:' + versionTimestamp + '\r\n' //in here the timestamp! Update when needed.
+  + 'DTSTAMP:' + versionTimestamp + '\r\n' //see global var on top.
   + 'X-MICROSOFT-CDO-BUSYSTATUS:FREE\r\nEND:VEVENT\r\n';
   //var icalend = 'END:VCALENDAR'
 
