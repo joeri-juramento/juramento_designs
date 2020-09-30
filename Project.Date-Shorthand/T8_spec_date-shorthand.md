@@ -384,14 +384,14 @@ It is running a script on a Cloudflare worker. The date is corrected for CEST ti
 Based on today's date this dynamic calendar will move forward with the time into the future, adding new events and removing old ones. Every event will have the shorthand date is its subject, for example "T8Z". No reminders are added (but beware of your client) and time is marked as free. The iCal spec was followed. [iCalender.org's validator](https://icalendar.org/validator.html?url=https://blog.juramento.nl/shortdates/AlpabetDates.ics) really helped.
 
 
-#### iCal desires (v1.1)
+#### iCal desires (v1.2)
 
 
-1. Starting at 6 weeks in the past, I want a weekly event on Monday for 4 weeks. (First day of the week in NL.)
-2. I want two full weeks of daily events after the current week; Sunday is the last day.
-3. After the first 2 weeks from today, I want 16 weeks with weekly events on Monday.
-4. Based on today, I want a weekly event on the current weekday for 6 weeks. (No doubles.)
-5. I want to full weeks before the current week starting on a Monday with daily events, all the way up to today.
+1. Starting at 6-to-7 weeks in the past, I want a weekly event on Monday for 4 weeks. (First day of the week in NL.)
+2. I want a daily events starting on a Monday two complete weeks before the current week and then for 35 days ending at a Sunday; in other words: 
+   *I want five complete weeks of daily events starting on a Monday with today in the middle week.*
+3. After the first 2 weeks from today, I want 14 weeks with weekly events on Monday.
+4. Based on today, I want a weekly events on the current weekday for 6 weeks. (No doubles.)
 
 #### iCal calendar link
 
