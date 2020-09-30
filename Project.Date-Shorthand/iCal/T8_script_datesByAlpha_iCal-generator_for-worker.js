@@ -23,74 +23,67 @@ FYI: Go-links can be kept up to date if their destionation changes, hence indire
 
 Regards, J•Juramento
 */
-versionTimestamp = '20200825T204202'; //Only for vEvents; not for script.
+versionTimestamp = '20200825T204205'; //Only for vEvents; not for script.
 addEventListener('fetch', event => { 
     init_primary_vars();  //This wil set currentDate.
     
-    //Goal: Event every Monday starting from 6 weeks for 4 weeks.
     var startdate = new Date();
-    var numberOfEvents = 4;   //Number of weeks (because of freq.=7).
+    var icallist = [0,0,0,0,0];
+    var TheCalcMonday = new Date();
+    
+    //First iteration: Five full weeks of daily events with the current day in the middle week. Rolling.
+    var numberOfEvents = 35; //5x 7 days.
+    var frequency = 1;
+    startdate.setTime(currentDate.getTime() - 21*24*60*60*1000);  
+    startdate = findDayofWeek(1,startdate); //finding Monday
+    TheCalcMonday.setTime(startdate.getTime());
+    console.log(TheCalcMonday + "The calc Monday <<<<<<< Startdate : " + startdate);
+    //numberOfEvents = ((currentDate.getTime() - startdate.getTime() ) / 1000 / 60 / 60 / 24);
+    console.log("numberOfEvents: "+ numberOfEvents);
+     init_second_Vars(startdate);
+    //Preparing work array.
+    ical_inputdata = [0,myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,shortdate,currentDate];
+    console.log('F1: Daily for five weeks, rolling: '+ startdate + ' -- inputdata: ' + ical_inputdata);
+    icallist = generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"start");
+
+    //Goal: Event every Monday starting from 6-7 weeks ago for 4 weeks.
+    var numberOfEvents = 6;   //Number of weeks (because of freq.=7).
     var frequency = 7;
-    startdate.setTime(currentDate.getTime() - ((numberOfEvents+3)*frequency)*24*60*60*1000); //This will set the date in the past.
-    startdate = findDayofWeek(1,startdate); //finding monday.
+    console.log(TheCalcMonday + ":F2 The Calc Monday");
+    startdate.setTime(TheCalcMonday.getTime() - (numberOfEvents*frequency)*24*60*60*1000); //This will set the date in the past.
+    console.log(startdate + ": F2 Startdate");
+    //startdate = findDayofWeek(1,startdate); //finding monday.
     init_second_Vars(startdate); // this will start conversion to orther notations.
     //Preparing work array.
     ical_inputdata = [0,myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,shortdate,currentDate];
-    console.log('fase 1 start date ' + startdate + ' -- inputdata: ' + ical_inputdata) ;
-    var icallist = generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"start");
-    
-    //Preparing next iteration. Goal: Event every day, for 14-20 days + today.
-    var numberOfEvents = 0; //set later after calc.
-    var frequency = 1;       
-    startdate.setTime(currentDate.getTime() + 14*24*60*60*1000); //For calc delta.
-    startdate = findDayofWeek(0,startdate); //finding Sunday
-    numberOfEvents = (1 + ((startdate.getTime() - currentDate.getTime() ) / 1000 / 60 / 60 / 24));
-    console.log("Delta F2 , numberOfEvents: "+ (numberOfEvents - 1) + ","+ numberOfEvents);
-    startdate.setTime(currentDate.getTime()); //Starting from today.  
-    init_second_Vars(startdate);
-    //Preparing work array.
-    ical_inputdata = [0,myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,shortdate,currentDate];
-    console.log('fase 2 start date ' + startdate + ' -- inputdata: ' + ical_inputdata) ;
-    icallist += generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"nowrap");
-    
-    //Preparing next iteration to weekly. 14 days from today, every Monday for 16 weeks.
-    var numberOfEvents = 16; //Number of weeks (because of freq.=7).
-    //var numberOfEvents = 1; //debugmode
-    var frequency = 7;
-    startdate = ical_inputdata[6]; //Where we left things.
-    startdate = findDayofWeek(1,startdate); //finding monday.
-    init_second_Vars(startdate);
-    //Preparing work array.
-    ical_inputdata = [0,myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,shortdate,currentDate];
-    console.log('fase 3 start date ITERATION 3: '+ startdate + ' -- inputdata: ' + ical_inputdata);
+    console.log('F2: Monday weekly in the past. ' + startdate + ' -- inputdata: ' + ical_inputdata) ;
     icallist += generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"nowrap");
 
+    //Weekly Monday iteration. After the next 2 full weeks which are filled, every Monday for 12 weeks.
+    var numberOfEvents = 12; //Number of weeks (because of freq.=7).
+    //var numberOfEvents = 1; //debugmode
+    var frequency = 7;
+    startdate.setTime(currentDate.getTime() + 14*24*60*60*1000); //For calc delta.
+    startdate = findDayofWeek(1,startdate); //finding Monday again; the future one.
+    init_second_Vars(startdate);
+    //Preparing work array.
+    ical_inputdata = [0,myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,shortdate,currentDate];
+    console.log('F3: Weekly Monday Future: '+ startdate + ' -- inputdata: ' + ical_inputdata);
+    icallist += generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"nowrap");
+   
+    
     //Preparing next iteration, additional weekly, but from today.
     if (currentDate.getDay() != 1) {
     var numberOfEvents = 4; //Number of weeks (because of freq.=7).
     var frequency = 7;
     startdate.setTime(currentDate.getTime() + 21*24*60*60*1000); //Same weekday after 3 weeks. 
-    console.log("startdate:" + startdate);
+    console.log("F4: startdate:" + startdate);
     init_second_Vars(startdate);
     //Preparing work array.
     ical_inputdata = [0,myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,shortdate,currentDate];
-    console.log('fase 4 start date ITERATION 4: '+ startdate + ' -- inputdata: ' + ical_inputdata);
-    icallist += generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"nowrap");
-    }
-
-    //Preparing next iteration: Past. Every day, starting Monday from two weeks ago, until yesterday.
-    var numberOfEvents = 0; //set later.
-    var frequency = 1;
-    startdate.setTime(currentDate.getTime() - 21*24*60*60*1000);  
-    startdate = findDayofWeek(1,startdate); //finding Monday
-    numberOfEvents = ((currentDate.getTime() - startdate.getTime() ) / 1000 / 60 / 60 / 24);
-    console.log("Delta F5: "+ numberOfEvents);
-    init_second_Vars(startdate);
-    //Preparing work array.
-    ical_inputdata = [0,myLongDateFormat,currentYear,currentMonth_mm,currentDay_dd,shortdate,currentDate];
-    console.log('fase 5 start date ITERATION 5: '+ startdate + ' -- inputdata: ' + ical_inputdata);
+    console.log('F4: Weekly of today\'s weekday Future:' + startdate + ' -- inputdata: ' + ical_inputdata);
     icallist += generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"end");
-
+    }
 
     //Yes, I am aware I need to create another function of the generic behaviour, but for now, 
     //I like the overview and everyfase has subtle differences.
@@ -273,8 +266,8 @@ async function handleRequest(request,returnTXT) {
     {
       status: 200,
       headers: {
-        'content-type' : 'text/calendar'
-        //'content-type' : 'text/plain'
+        //'content-type' : 'text/calendar'
+        'content-type' : 'text/plain'
       }
       
 
