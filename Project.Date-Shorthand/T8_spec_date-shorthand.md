@@ -688,48 +688,59 @@ Now we have gathered more information we can create a kind of rating per letter:
 
 🔴 red circle ; nope / not good enough
 
-> Why not one form? So people who are colour blind can see what I am doing. - That I don't expect visitors does not matter. #Design-brain-training.
+> Why not one form? So people who are colour blind can see the difference. - That I don't expect visitors does not matter. #Design-brain-training.
 
 Best scoring letters in order based on current information (v1):
 
 Γ Δ Θ* Ππ Σ Φ* Ψψ Ω of which I should choose only one of *; which both scored the lowest.
 
-| Number                                                       | List 1 | List 2 | List 3 | List 4 | List 5  | List inv. | List wind. | List mac |
-| ------------------------------------------------------------ | ------ | ------ | ------ | ------ | ------- | --------- | ---------- | -------- |
-| 27                                                           | Γ      | Γ      | Γ      | Γ      | Γ       | Π         | Γ          | Δ        |
-| 28                                                           | Δ      | Δ      | Δ      | Δ      | Δ       | Σ         | Θ          | Π (!)    |
-| 29                                                           | Θ      | Θ      | Π      | Σ      | Σ       | Φ         | Σ          | π (!)    |
-| 30                                                           | Π      | Σ      | Σ      | Φ      | Φ       | Ψ         | Φ          | Σ        |
-| 31                                                           | Σ      | Ψ      | Φ      | Ψ      | Ω (Ψ)   | Ω         | Ω          | Ω        |
-| last day                                                     | Ω      | Ω      | Ω      | Ω      | - (Ω)   | -         | -          | -        |
-|                                                              |        |        |        |        |         |           |            |          |
-| not used                                                     | Ψ      | Π      | Ψ      | Π      | Θ Π Ψ   | Γ Δ       | Δ Π Ψ      | Γ Ψ      |
-| mandatory excluded                                           | Φ      | Φ      | Θ      | Θ      | -       | Θ         | ignored    | ΘΦ       |
-| Status                                                       |        |        |        |        |         |           | 🔶          | 🔴        |
-| Ψ vs Π: Π wins due to typeability on mac.                    | +1     |        | +1     |        |         | +0.5      | +0.5       | -        |
-| Ψ vs Π: Ψ wins due to easy description.                      |        | +1     |        | +1     | +0 (1)  | +0.5      | +0.5       | -        |
-| Ψ vs Π: Ψ wins on case similarity.                           |        | +1     |        | +1     | +0 (1)  | +0.5      | +0.5       | -        |
-| Φ vs Θ: equal in every area.<br />fyi: some font-dependencies. | -      | -      | -      | -      | -       | -         | -          | -        |
-| typeability quick on windows                                 | +4     | +4     | +4     | +4     | +4      | +3        | +5         | -        |
-| typeability on keyboard with Greek lay-out on mac&win left-hand only | +3/5   | +3/5   | +4/6   | +4/5   | +5/5    | +3/5      | +4/5       | -        |
-| Subtotal A                                                   | 8      | 9      | 9      | 10     | 9 (11)  | 7.5       | 10.5       |          |
-| Ω vs Ψ: equal on most but Ψ has easier novice-description    |        |        |        |        | +0 (1)  |           |            |          |
-| Ω vs Ψ: Ω has better keyboard support on mac and windows     |        |        |        |        | +2 (0)  |           |            |          |
-| Subtotal B                                                   |        |        |        |        | 11 (11) |           |            |          |
+| Number                                                       | List 1 | List 2 | List 3 | List 4 | List 5 | List 6 | List inv. | List win. | List mac |
+| ------------------------------------------------------------ | ------ | ------ | ------ | ------ | ------ | ------ | --------- | --------- | -------- |
+| 27                                                           | Γ      | Γ      | Γ      | Γ      | Γ      | Γ      | Π         | Γ         | Δ        |
+| 28                                                           | Δ      | Δ      | Δ      | Δ      | Δ      | Θ      | Σ         | Θ         | Π (!)    |
+| 29                                                           | Θ      | Θ      | Π      | Σ      | Σ      | Σ      | Φ         | Σ         | π (!)    |
+| 30                                                           | Π      | Σ      | Σ      | Φ      | Φ      | Φ      | Ψ         | Φ         | Σ        |
+| 31                                                           | Σ      | Ψ      | Φ      | Ψ      | Ω      | Ψ      | Ω         | Ω         | Ω        |
+| last day                                                     | Ω      | Ω      | Ω      | Ω      | -      | Ω      | -         | -         | -        |
+|                                                              |        |        |        |        |        |        |           |           |          |
+| not used                                                     | Ψ      | Π      | Ψ      | Π      | Θ Π Ψ  | Π      | Γ Δ       | Δ Π Ψ     | Γ Ψ      |
+| mandatory excluded                                           | Φ      | Φ      | Θ      | Θ      | -      | ign.   | Θ         | ign.      | ΘΦ       |
+| Status                                                       |        |        |        |        |        |        |           |           | 🔴        |
+| Ψ vs Π: typeability mac superseded!                          | (1)    |        | (1)    |        | (0.5)  | (0)    | (1)       | (0.5)     | -        |
+| Ψ vs Π: Ψ wins due to easy description.                      |        | +1     |        | +1     | +0.5   | +1     | +1        | +0.5      | -        |
+| Ψ vs Π: Ψ wins on case similarity.                           |        | +1     |        | +1     | +0.5   | +1     | +1        | +0.5      | -        |
+| Φ vs Θ: equal in every area.<br />fyi: some font-dependencies. | -      | -      | -      | -      | -      |        | -         | -         | -        |
+| typeability quick on windows                                 | +4     | +4     | +4     | +4     | +4     | +5     | +3        | +5        | -        |
+| typeability quick on mac                                     | +3     | +2     | +2     | +2     | +3     | +2     | +2        | +2        | -        |
+| typeability on Greek keyb. mac&win Left Hand                 | +3/5   | +4/5   | +4/5   | +5/5   | +5/5   | +4/5   | +4/5      | +4/5      | -        |
+| Subtotal A                                                   | 10     | 12     | 10     | 13     | 12     | 13     | 11        | 12        | -        |
+| Ω vs Ψ: equal on most but Ψ has easier novice-description    | 0      | +1     | 0      | +1     | 0      | +1     | +1 n/a    | 0         | -        |
+| Ω vs Ψ: Ω has better keyb. support on mac&win                | 0      | 0      | 0      | 0      | +2     | 0      | +1 n/a    | +2        | -        |
+| Subtotal B                                                   | 10     | 13     | 10     | 14     | 14     | 14     | 13        | 14        | -        |
+| Δ vs Θ: Θ wins-ish on case similarity Δδ Θθ [max 0.5]        | +0,5   | +0.5   | 0      | 0      | 0      | +0.5   | 0         | +0.5      | -        |
+| Count case similar letters:                                  | 1x     | 2x     | 2x     | 2x     | 1x     | 3x     | 4x        | 3x        | -        |
+| Subtotal C                                                   |        |        |        |        |        | 14.5   |           | 14.5      |          |
 
-#### Preliminarily conclusion
+#### Intermediate conclusion
 
-> Which combination is best? List 5 has the most points, but with 31 = --Ω or --Ψ. - I think that being to use/type it is a tad more important than being able to communicate the letter for a novice. For me personally it is a mute point because I recognize the omega letter, however, in general we may be able to claim that using the shorthand date is a tad more important than communication about the date. Let's give it a go in the iCal and let's see if there are any unforeseen surprises.
->
-> | Letter | Date       |
-> | ------ | ---------- |
-> | T9Γ    | 2020-09-27 |
-> | T9Δ    | 2020-09-28 |
-> | Τ9Σ    | 2020-09-29 |
-> | Τ9Φ    | 2020-09-30 |
-> | Τ9Ω    | 2020-09-31 |
->
-> 
+ List 6 and List Windows have the most points, the difference is 31 = --Ω or --Ψ. 
+
+> Which combination is best?  Besides personal preference, I have no other means of measure to pre-determine which letter would be best at the moment. Let's give it a go in the iCal and let's see if there are any unforeseen surprises. Perhaps using the letters like Â-Ô will provide new insights. Also the current selection ignores the expected confusion between Θ and Φ, so there is more to experience.
+
+| Letter     | Date       |
+| ---------- | ---------- |
+| T9Γ        | 2020-09-27 |
+| T9Θ        | 2020-09-28 |
+| Τ9Σ        | 2020-09-29 |
+| Τ9Φ        | 2020-09-30 |
+| Τ9Ω \| T9Ψ | 2020-09-31 |
+
+So the testing will try to answer several questions:
+
+ 1. Is working with Greek letters in itself acceptable?
+ 2. Which letter is better to work with, Omega (Ω) or Psi (Ψ)?
+ 3. Are Thèta (Θ) and Phi (Φ) causing any confusion is distinguishing dates?
+
 
 
 
