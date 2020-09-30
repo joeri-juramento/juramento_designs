@@ -1,11 +1,11 @@
-# Short date notation | Shorthand Requirement & Spec
+<font size="6">**Short date notation | Shorthand Requirement & Spec**</font>
 
 
 [TOC]
 ------
 *The following requirements where defined:*
 
-### Intro
+# Problem introduction
 
 Original dates - in various order - take up the following space in file and screen space:
 
@@ -49,7 +49,7 @@ So the requirement:
 
 
 
-## Requirements
+# Requirements
 
 <u>Create a date notation that is as short as possible without too much loss of information which remains sortable (chronologically correct) by system and understandable by average humans.</u>
 
@@ -59,7 +59,7 @@ Breaking down the requirement:
 
 
 
-#### "a date notation that is as short as possible"
+## "a date notation that is as short as possible"
 
 We can use the alphabet as numbers to prevent needing to characters above the number 9. Furthermore we can use accents for numbers above the number 26. 
 
@@ -67,7 +67,7 @@ We can use the alphabet as numbers to prevent needing to characters above the nu
 
 ABCDEFGHIJKLMNOPQRSTUVWXYZ are 26 letters. A is the 1st letter; Z is the 26th letter. I am aware other languages have different lengths. New English and Dutch have 26 1-digit-char letters.
 
-##### Shorting months
+### Shorting months
 
 I can spare a month digit by writing October, November, December as J,K,L:
 
@@ -86,7 +86,7 @@ One could write all months as letters; but for quick recognition, I keep 1-9 wit
 
 
 
-##### Shortening days
+### Shortening days
 
 For 1-31 days I normally need 2 digits, from the alphabet I have a 1 char sign up to 26. I can extend this with a unique char for 27 up to 31. By going down this path an related requirement was identified. Usable by humans. That refers to being to enter the letter on a keyboard or mobile phone without alt-codes.
 
@@ -101,7 +101,7 @@ For 1-31 days I normally need 2 digits, from the alphabet I have a 1 char sign u
 | 30     | Ô      |
 | 31     | Û      |
 
-##### Shortening years
+### Shortening years
 
 Now we have defined a spec for numbers 1 - 31, be can also re-use that for years to save a digit up to 2031.
 
@@ -126,14 +126,14 @@ Obviously there are more special characters, but the Û sorts pretty at the end 
 
 
 
-#### "without too much loss of information"
+## "without too much loss of information"
 
 - I need the ability to write dates further then 2029, preferably up to 2099 which is over 79 years from this year (2020).
 - I would like the ability to quickly recognize the month.
 
 
 
-#### "which remains sortable (chronologically correct) by system"
+## "which remains sortable (chronologically correct) by system"
 
 20-08-2020_Filename.ext
 25-01-2018_Filename.ext
@@ -149,13 +149,13 @@ If sorted on filename from old to new, the R1Y file would be correctly listed ab
 
 
 
-#### "<u>understandable</u> [and usable] by average humans"
+## "<u>understandable</u> [and usable] by average humans"
 
 This means the date does not need be calculated due to compressed information like the first iteration. (28.22)
 
 > Yesterday, I did not know what the 20th letter from the alphabet was. The position of a letter in the alphabet is not knowledge ready at hand (for me); but it is deductible for those who have not memorized it and fairly universal, even if your main (Latin-based) language has another alphabet. 
 
-##### Understanding vs knowing the alphabet
+### Understanding vs knowing the alphabet
 
 I recognize that this requires learning the positions of 26 letters plus 6 extra accented-letters.
 
@@ -177,7 +177,7 @@ None of these notation variation violates the requirement as defined. Dates are 
 
 
 
-#### "[understandable and] <u>usable</u> by average humans"
+## "[understandable and] <u>usable</u> by average humans"
 
 This also connects to the previous section. Most people will have access to an English alphabet index order and it could be learned.
 
@@ -211,19 +211,19 @@ Furthermore I choose the 27-31st letters on the A-Z row below to maintain sortab
 >
 > These side notes are here to show a process of thought and can be continue after additional testing. Read the latest spec to find out the status quo.
 >
-> ##### Comments added after a while:
+### Retrospective comments:
 >
 > Argument 5 seems to be much stronger than anticipated. I experienced it about talking about the spec with others (n=2). "I used the vowels with little roof" [NL: "Klinkers met een dakje"] for the missing numbers (which also maintains sortability), is easier to communicate than "I used the letter N with tilde for 29 and the rest are vowels".  //T8Z
 
 
 
-##### Leap day
+### Leap day
 
 There is one happy coincidental extension point of the spec. If one would want a specific sign for leap day, one could use Ñ or Î depending on which is chosen as the default and which remains.
 
 
 
-## Spec v0.9.1
+# Spec v0.9.1
 
 
 
@@ -239,7 +239,7 @@ We define a 3 to 4 character date notation system with an possible extension goi
 
    
 
-### First position representing the year X--
+## First position representing the year X--
 
 1. For the first 31 years the first position presents that last two digits of a year. The millennium and century are omitted. 
 2. After the first 31 years the two first positions are identical to the last two digits of a year unless the spec is updated.
@@ -259,7 +259,7 @@ From year 2032 on, the notation switches back to original digits, unless the spe
 
 > (*Ñ if the discussion of 29 progresses towards Ñ as a special notation for leap day the 29th, it makes less sense to also keep using it also as an alternative to 29 in the years.)
 
-### Second position representing the month -X-
+## Second position representing the month -X-
 
 1. The second last position represents the month and a dualistic notation form exists. 
 2. For the months 1-9 (Jan-Sept) it is recommended to use the actual singular digits and not A-H. (For faster human recognition.)
@@ -283,7 +283,7 @@ From year 2032 on, the notation switches back to original digits, unless the spe
 
 
 
-### Last position representing the day of month --X
+## Last position representing the day of month --X
 
 1. The last position represents the day number as in day of the month 1 to 31.
 2. The alphabet letters represent the day of the month based on their index number in the (English) alphabet.
@@ -313,7 +313,7 @@ From year 2032 on, the notation switches back to original digits, unless the spe
 
 
 
-### Full examples - All positions
+## Full examples - All positions
 
 Examples of dates:
 
@@ -330,7 +330,7 @@ Examples of dates:
 
 
 
-### Range of spec
+## Range of spec
 
 | Datum YYYY-MM-DD    | Datum shorthand     | Commenting on example                                        |
 | ------------------- | ------------------- | ------------------------------------------------------------ |
@@ -349,7 +349,7 @@ Examples of dates:
 
 
 
-## Implementation vBeta
+# Implementation vBeta
 
 > I started using it on my own file system and my paper notes; the damn date field is finally large enough for my handwriting ;).
 >
@@ -357,7 +357,7 @@ Examples of dates:
 
 
 
-### Today Site
+## Today Site
 
 At https://go.juramento.nl/today you can find the shorthand date of today. Iframe below:
 
@@ -371,19 +371,21 @@ It is running a script on a Cloudflare worker. The date is corrected for CEST ti
 
 
 
-### Calendar
+## Calendar
 
 > After I got the hang of some JavaScript date operations and my conversion, I asked myself: what can I do if I really want to rely on the short date system? I argued that I needed some integration with my current digital system. I tried to use the 'Alternative calendar' feature in Windows and 'Alternative Timezone' but that is not really for a Custom Time Date Notation like the above, so I settled on a integration with my calendar via iCal. I argued that I want to be able to update the events quickly if the spec ever got updated so I didn't want a one-time export which could expire.
 >
 > So I looked into *.ics file which is a text-based format which a Cloudflare worker could generate and serve.
 
-#### Dynamic rolling horizon of events
+### Dynamic rolling horizon of events
 
 > I don't need 365 events in my calendar. I just need some visible support when I am learning the AlphabetÐates. Remember it is a shorthand notation form, not an complete replacement of the actual date if that makes any sense at this point.
 
 Based on today's date this dynamic calendar will move forward with the time into the future, adding new events and removing old ones. Every event will have the shorthand date is its subject, for example "T8Z". No reminders are added (but beware of your client) and time is marked as free. The iCal spec was followed. [iCalender.org's validator](https://icalendar.org/validator.html?url=https://blog.juramento.nl/shortdates/AlpabetDates.ics) really helped.
 
-##### iCal desires (v1.1)
+
+#### iCal desires (v1.1)
+
 
 1. Starting at 6 weeks in the past, I want a weekly event on Monday for 4 weeks. (First day of the week in NL.)
 2. I want two full weeks of daily events after the current week; Sunday is the last day.
@@ -391,9 +393,12 @@ Based on today's date this dynamic calendar will move forward with the time into
 4. Based on today, I want a weekly event on the current weekday for 6 weeks. (No doubles.)
 5. I want to full weeks before the current week starting on a Monday with daily events, all the way up to today.
 
-##### Webcal / iCal link
+#### iCal calendar link
 
-You can subscribe to the iCal calendar with this URL: https://blog.juramento.nl/shortdates/AlpabetDates.ics 
+You can subscribe to the iCal calendar with this URL:
+
+https://blog.juramento.nl/shortdates/AlpabetDates.ics 
+
 If you download and save the file, you get an export which will not update itself as far as I know. If you import two offline files, you should not get double events due to an unique UID in every event. If you really want to see, **I strongly recommend subscribing instead of downloading** so the calendar is automatically updated.
 
 #### iCal generator script
@@ -404,14 +409,354 @@ https://go.juramento.nl/source-shortdates-ical
 
 
 
-## Meta
+# Discussion
 
-| Attribute                    | Value                                      |
-| ---------------------------- | ------------------------------------------ |
-| Starting date                | T8- \| 2020-08                             |
-| Last formal publish update   | T8Z \| 2020-08-26 \|^\| Check git commits: |
-| Source location of this page | https://go.juramento.nl/source-shortdates  |
-| Permalink to published page  | https://go.juramento.nl/shortdates         |
+## Issue sorting Â-Ô<Z
+
+> Unfortunately the accented letters representing numbers 27 - 31 do not sort as desired. It remains unclear how this got passed the preliminary tests, because it makes sense Â would be sorted after A and not after Z; suspected is that the method of measuring (using terminal X which did sort as desired) was the cause it did go unnoticed at first.
+>
+> The incorrect sorting was noticed after creating a file with 'T9Â' and it got sorted on top. So this list:
+>
+> - T9A
+> - T9B
+> - T9Z
+> - T9Â
+> - T9Ê
+>
+> Will sort like:
+>
+> - T9A
+> - T9Â
+> - T9B
+> - T9Ê
+> - T9Z
+>
+> 
+
+One the requirements is having this sortability in alphabetical order which matches the chronical order of days. After taking another look at sorting the following was observed where found:
+
+1. Windows Explorer sorts Â before Z after A.
+2. Mac Finder sorts Â before Z after A.
+3. Windows cmd shorts Â before Z after A.
+4. Mac zsh/fish sorts Â AFTER Z. 
+5. Windows Explorer & Mac Finder sort 'T90' after ' whereas they sort 'TJ0' BEFORE 'TJA'. (it reads the '90', hence,we use T9- and no 0.)
+6. Windows cmd & Mac zsh/fish sort ' T90' before 'T9A'  and 'TJ0' also before 'TJA'. (Issue for 2000?)
+7. Windows Explorer, cmd and Mac sorts the old 27th English letter '&' before the A and before the '-'
+8. Mac Finder sorts '&' before the A but after the '-'
+9. iOS sync app sorts Â AFTER Z.
+10. iOS native files app sorts Â before Z after A.
+11. Sorting in Notepad++ sorts Â AFTER Z.
+
+So sorting is not consistent over all platforms. 
+
+### Searching for solutions
+
+> Now I need to find 5 new symbols/letters representing the numbers 27,28,29,30,31, looking for symbols/letters that sort better than Â-Ô vowels. These are my thoughts:
+>
+> - Greek Alphabet like used in hurricane naming.
+>   - Some Greek capitals have overlap and cannot be reused.
+>   - Some Greek letters have lookalikes and should not be reused.
+>   - Expected penalty in usability as typing these letters might be harder.
+>
+> - Shift the number, so shift 7 = &, shift 8 = * etcetera.
+>   
+>   - On a physical keyboard, the bridge from 27 to '&' might easy, the sorting of the symbols is not structured.
+>   
+> - Other characters on a keyboard 
+>
+>   - No internal sorting one can infer. (so far I found)
+>
+>   ```
+>   - + */( ) & ^ % $ # @ ! )
+>   ```
+>
+>   
+
+### The Greek alphabet
+
+| Α    | α    | [alfa](https://nl.wikipedia.org/wiki/Alfa_(letter))   | Ν    | ν    | [nu](https://nl.wikipedia.org/wiki/Nu_(letter))       |
+| ---- | ---- | ----------------------------------------------------- | ---- | ---- | ----------------------------------------------------- |
+| Β    | β    | [bèta](https://nl.wikipedia.org/wiki/Bèta_(letter))   | Ξ    | ξ    | [xi](https://nl.wikipedia.org/wiki/Xi_(letter))       |
+| Γ    | γ    | [gamma](https://nl.wikipedia.org/wiki/Gamma_(letter)) | Ο    | ο    | [omikron](https://nl.wikipedia.org/wiki/Omikron)      |
+| Δ    | δ    | [delta](https://nl.wikipedia.org/wiki/Delta_(letter)) | Π    | π    | [pi](https://nl.wikipedia.org/wiki/Pi_(letter))       |
+| Ε    | ε    | [epsilon](https://nl.wikipedia.org/wiki/Epsilon)      | Ρ    | ρ    | [rho](https://nl.wikipedia.org/wiki/Rho_(letter))     |
+| Ζ    | ζ    | [zèta](https://nl.wikipedia.org/wiki/Zèta)            | Σ    | σς   | [sigma](https://nl.wikipedia.org/wiki/Sigma_(letter)) |
+| Η    | η    | [èta](https://nl.wikipedia.org/wiki/Èta)              | Τ    | τ    | [tau](https://nl.wikipedia.org/wiki/Tau_(letter))     |
+| Θ    | θ    | [thèta](https://nl.wikipedia.org/wiki/Thèta)          | Υ    | υ    | [ypsilon](https://nl.wikipedia.org/wiki/Ypsilon)      |
+| Ι    | ι    | [jota](https://nl.wikipedia.org/wiki/Jota_(letter))   | Φ    | φ    | [phi](https://nl.wikipedia.org/wiki/Phi_(letter))     |
+| Κ    | κ    | [kappa](https://nl.wikipedia.org/wiki/Kappa_(letter)) | Χ    | χ    | [chi](https://nl.wikipedia.org/wiki/Chi_(letter))     |
+| Λ    | λ    | [lambda](https://nl.wikipedia.org/wiki/Lambda)        | Ψ    | ψ    | [psi](https://nl.wikipedia.org/wiki/Psi_(letter))     |
+| Μ    | μ    | [mu](https://nl.wikipedia.org/wiki/Mu_(letter))       | Ω    | ω    | [omega](https://nl.wikipedia.org/wiki/Omega_(letter)) |
+
+> Zooming in on Greek alphabet: (Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω)
+>
+> - Choosing alpha-epsilon **capital** letters
+>   - Pro: simply just the 5 first letters of the alphabet.
+>   - Con: 3 of 5 Capitals have overlap and cannot be used.
+> - Choosing alpha-epsilon **small** letters
+>   - Pro: simply just the 5 first letters of the alphabet.
+>   - Con: The small letter alpha is not always that recognisable; font-depended.
+>   - Con: The small letter gamma looks a lot like Y (T9γ could be confused with T9Y)
+>   - Con: Inconsistent with other dates who use capital letters.
+>   - Con: if for some reason a filename is displayed with capitals, the actual date would change its meaning due to overlap. 
+> - Choosing omega-ypsilon **capital** letters
+>   - Pro: last 5 letters of Greek alphabet (last numbers of Month).
+>   - Con: X (chi) is similar to --X thus 24th and cannot be used.
+>   - Con: Y (ypsilon) is similar to --Y thus 25th and cannot be used.
+> - Choosing the five first **capital** letters that do not overlap. (Γ,Δ,Θ,Λ,Ξ)
+>   - Pro: one can look up these letters and order.
+>   - Con: there are several 5-Greek-capital-letter-combinations, why this one?
+>     - It is the first 5.
+>
+> From here we explore more advanced (or possible far-fetched combo's):
+>
+> The Greek alphabet as 10 unique capital letters: (Γ Δ Θ Λ Ξ Π Σ Φ Ψ Ω)
+>
+> - Choosing five capital letters on a iOS Greek **keyboard** in order of appearance: 
+>
+>   - ΘΠΣΔΦ (sorted: ΔΘΠΣΦ)
+>   - Now start at thèta (Θ) but skip any letter that is sorted before the last:
+>   - ΘΠΣΦΨ (sorted the same, obviously)
+>
+> - Choose 5 capital letters that have any **association** with the numbers 27-31.
+>
+>   - (FYI: the Greek modern alphabet has 24 letters.)
+>
+>   - The 7th letter is Èta (H) which conflicts with --H.
+>
+>   - The 17th letter is Rho (P) which conflicts with --P
+>
+>   - (FYI: [Greek numerals](https://en.wikipedia.org/wiki/Greek_numerals) have one letter for 1-9 and 10,20,...,100 and they combine for numerals in between.)
+>
+>   - The Greek numeral of 30 can be written as Λ'  (lambda).
+>
+>     - Pro: using this letter to represent --Λ the 30th date would work.
+>     - Con: This implies that the 27, 28 and 29th representation have to exist before Λ in the alphabet to maintain sortability.
+>       - Pro: You cannot do this wrong, because there are only (capital) 3 letters in front of Λ matching the requirements.
+>       - Pro: unplanned, it also results in choosing the first available 5.
+>     - Con: I don't think it is basic knowledge that Λ' means 30. 
+>       - Counter: Vowel --Ô being 30 was also taught and had only the circular reference to a round number.
+>     - Con: Lambda and Delta are look-a-like (Δ Λ) which can cause confusion. 
+>     - Con: this would make it harder to use omega (Ω) as the last number 31.
+>     - Pro: One could use the remaining letters to extend the years of the spec. Ψ-- = 2035.
+>     - Con: if for some reason the filename is represented as small letters, the letter gamma might be confused with a small letter y. 
+>
+>   - The last Greek letter is omega Ω; the association would be last letter is last date.
+>
+>     - Pro: Easy to recognize, being the last.
+>     - Con: 31 is not always the last day of the month since 30, 29 and 28 can sometimes all be the last day of the month.
+>       - Alternative: omega could also be used as joker for *last day* like Ž once was and have only a contextual number depending on the month. --Ω = error; Ω = 30th of Sept.
+>
+>   - Looking at form, the gamma Γ, looks like a mirror 7. (--Γ would be 27.)
+>
+>     - Proxy-Pro: this is fits the the lambda = 30 path.
+>
+>     - Pro: form could help remembering it as a mnemonic.
+>
+>       
+
+#### Looking at Greek
+
+> Typing these Greek characters on iOS is done via the Greek keyboard. Typing Â by holding A and moving towards the letter Â might be experienced as a simpler interaction than switching the keyboard to Greek. On a windows machine it is more complicated.
+>
+> In ["[understandable and] usable by average humans"](https://blog.juramento.nl/juramento_designs/Project.Date-Shorthand/T8_spec_date-shorthand.html#understandable-and-uusableu-by-average-humans) requirements are defined about being able to use/type them:
+>
+> > - I need to be able to enter the char via a keyboard on PC.
+> > - I need to be able to enter the char via a keyboard on mobile phone.
+> > - I need to be able to write down the char fairly easily.
+> > - I need to be able to differentiate the letters from each other.
+> > - I need to be able to read a shorthand notation and understand it as a date. 
+>
+> Though I would like to define: "no alt codes", I did not and explicitly stated what the minimum requirements are. That Â is 'typable' without alt-codes is great, but if it sorts incorrect, that is not ideal.
+>
+> What is more important? Sorting or ease of typing? 
+>
+
+#### Implications of using Greek
+
+Let's have a look at what you have to do to type these characters.
+
+On Windows you have combo-keys, you have simple alt-codes (alt+nnn) lower then 256, you have alt-codes higher than 256 and you have more sophisticated alt-codes a.k.a. uni-codes like alt U+0939 and you have the Greek keyboard.
+
+> Experiencing these alt-codes, sometimes you even have to update your regional settings or a registry key to get some of these combinations working. This is unacceptable! It should not be this complicated! Having to resort to the Greek alphabet all together is already a drag and potentially a breaking aspect of the use of shortdates all together, so adding another hoop to jump through will not help.
+
+| Letter | Windows                                                      | Mac                                                          | iOS                            |
+| ------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------ |
+| Â      | ^ + A = [shift 6]+[shift a]                                  | ^ + A [option + 6] +[shift a]                                | Hold letter A, select Â        |
+| Γ      | Switch to Greek, shift g<br />**[Alt] + [226]**<br />[Alt] + [915]<br />[Alt] + [U+0393] | Switch to Greek, shift g<br />Switch to hex, [Opt]+[0393]    | Switch to Greek, choose letter |
+| Δ      | Switch to Greek, shift d<br />[Alt] +  [{n/a}]<br />[Alt] + [923]<br />[Alt] + [U+0394] | Switch to Greek, shift d<br />**[Option] + [j]**<br />Switch to hex, [Opt]+[0394] | dito (= ")                     |
+| Θ      | Switch to Greek, shift u<br />**[Alt] + [233]**<br />[Alt] + [952]<br />[Alt] [u] [+] [0398] | Switch to Greek, shift u<br />Switch to hex, [Opt]+[0398]    | "                              |
+| Λ      | Switch to Greek, shift l (L)<br />[Alt] + [923]              | Switch to Greek, shift l                                     | "                              |
+| Ξ      | Switch to Greek, shift j<br />[Alt] + [926]                  | Switch to Greek, shift j                                     | "                              |
+| Π      | Switch to Greek, shift p<br />[Alt] + [928]                  | Switch to Greek, shift p<br />**[Option] + [shift] + [p]**   | "                              |
+| Σ      | Switch to Greek, shift l**<br />[Alt] + [228]**<br />[Alt] + [931] | Switch to Greek, shift s<br />**[Option] + [w]**             | "                              |
+| Φ      | Switch to Greek, shift f**<br />[Alt] + [232]**<br />[Alt] + [934] | Switch to Greek, shift f                                     | "                              |
+| Ψ      | Switch to Greek, shift y<br />[Alt] + [936]                  | Switch to Greek, **shift c**                                 | "                              |
+| Ω      | Switch to Greek, shift w<br />**[Alt] + [234]**<br />[Alt] + [937] | Switch to Greek, **shift v**<br />**[Option] + [z]**         | "                              |
+
+> **Windows**
+> I am very upset that the alt codes are so complicated. I had to change my region (setting for non-unicode apps only) to get the 3 digit codes to work on my Windows machine. 
+>
+> I got the [Alt] [u] [+] [0398] working via a setting in my registry but NO I do not want to do this. I do not want to remember this awkward and painful combination. The benefits should outweigh any downside.
+>
+> **Mac**
+> On the mac, you can apparently also use the unicode input, you need to add an extra hex-input keyboard though. In the table you can find 3 examples, symmetric to Windows; then I stopped, out of protest.
+>
+> On the mac, not all the letters are on the same position, because that would be to easy :/ - the letters Ψ and Ω are not on the keys y and w like on windows, but on the keys c and v. 
+>
+> On the mac you can also type certain Greek letters with the option key. I used Keyboard viewer where to find them and switched between several keyboards lay-out. With the lay-out US International or ABC (normal) and with option key + optional shift I could type:
+>
+> Σ Π Δ Ω and small Greek letter: μ 
+> (And I almost mistook a German ß [Eszett] for β [beta]. Fun fact: the the alt-code 225 which results in the German one is circulating the internet as being beta, which I can understand as alt+224 result in alpha and alt+226 results in gamma. However, as you can see, they are not the same.)
+>
+
+
+So in conclusion, Windows seems to have 5 short alt-codes below 255 and Mac has 4 option combo's; both platforms have the ability to add an external keyboard providing access to all letters, but the letters on physical keyboards do not change, meaning a onscreen keyboard or user-memory needs to be used to find the appropriate letters. We can use this new information to create another priority of selecting the 5 chars.
+
+For the overview, the small letters:
+
+| Letter | Comment                                                      | Peek |
+| ------ | ------------------------------------------------------------ | ---- |
+| α      | Collision/Overlap via capital A.                                       | A    |
+| β      | Collision via capital B. Possible confusion with ß             | B    |
+| γ      | Similarity, visually with y / Y.                             | Γ    |
+| δ      |                                                              | Δ    |
+| ε      | Collision via capital E.                                       | E    |
+| ζ      | Collision via capital Z.                                       | Z    |
+| η      | Collision via capital H.                                       | H    |
+| θ      | Similarity in description-by-human with Φ. ("Circle/Zero/O with line through it".) ** | Θ    |
+| ι      | Collision via capital I. **                                    | I    |
+| κ      | Collision via capital K. **                                    | K    |
+| λ      |                                                              | Λ    |
+| μ      | Collision via capital M. [Mu]                                  | M    |
+| ν      | Collision via capital N. [Nu]                                  | N    |
+| ξ      |                                                              | Ξ    |
+| ο      | Collision via capital O. **                                    | O    |
+| π      | **                                                           | Π    |
+| ρ      | Collision via capital P. **                                    | P    |
+| σ,ς *  |                                                              | Σ    |
+| τ      | Collision via capital T. **                                    | T    |
+| υ      | Collision via capital Y. [Uspilon]                             | Y    |
+| φ      | Similarity in description-by-human with θ/Θ. ("Circle/Zero/O with line through it".) | Φ    |
+| χ      | Collision via capital X.                                       | X    |
+| ψ      | **                                                           | Ψ    |
+| ω      |                                                              | Ω    |
+
+Take note that:
+
+- There are no 5 smaller letters next to each other that do not have an overlap of their capital equivalent. 
+- ** Letters whose lower-case version looks similar like their uppercase version 
+  - The only letters like this that also do not have overlap are Pi and Psi.
+- 8 Lower case Greek letters remain of you skip all overlapping letters and choose theta or phi.
+
+> Sometimes certain systems do now allow to spell project files, channels, team-names or whatever with capital letters. If we would allow lower case Greek letters into the spec whose upper case letters have a different meaning, that could result in a conflict of meaning, or in other words *ambiguity,* in contexts in which we have no control over letter capitalisation. 
+
+#### Scoring remaining letters
+
+Now we have gathered more information we can create a kind of rating per letter:
+
+| Letter | Name | Association ** | Usability:<br />Typeability | Visually distinct novice | Case Similarity | Novice human description | Σ |
+| ----------------- | ----------- | ----------- | ---- | ----------------- | ----------------- | ----------------- | ----------------- |
+|  |  | +1 for usable to potential meaning 27-31 | +1 for extra fast type method<br />0 for default method |  | 0 for default <br />+1 is yes | simple & universal +2<br />edge +1 |  |
+| Γ | Gamma upper | 🟩 Mirrored 7   | 🟩 +1@windows | 🟩yes | no | 🔴"half rectangle" | +3 |
+| Δ | Delta upper | 4                      | 🟩 +1@mac | 🟩yes, if no Λ<br />🔶ish(Λ) | no | 🟩"triangle" | +3 |
+| Θ * | Theta upper | friend from Independence Day II | 🟩 +1@windows | 🟩yes | 🔶ish | 🟩"circle with line" + if no Φ<br />🔶"circle with line" | +3,5<br />+2,75! |
+| Λ | Lambda upper | 🟩30                   | - | 🔶ish(Δ) | ish- | 🟩"V upside-down" | +2,5! |
+| Ξ | Xi upper | -                     | - | no (E \*3) | no | 🟩"Three lines"<br />"Hambuger" (font dependent!) | +1 |
+| Π | Pi upper | goal | 🟩 +1@mac | 🟩yes- | ish/yes 🔶 | 🔶"Handwriting letter of N" | +2,75! |
+| Σ | Sigma upper | sum                | 🟩 +1@windows<br />🟩 +1@mac | 🟩yes | no | 🟩"mirrored 3"<br />🧪"sumtotal" | +4 |
+| Φ * | Phi upper | - | 🟩 +1@windows | 🟩yes | 🔶ish | 🟩"circle with vertical line" + if no Θ<br />🔶"circle with vertical line" | +3,5<br />+2,75! |
+| Ψ | Psi upper | aquaman<br />trident   | - | 🟩yes | 🟩yes | 🟩"trident" | +3 |
+| Ω | Omega upper | superman<br />the last | 🟩 +1@windows<br />🟩 +1@mac | 🟩yes | no | 🧪"Ohm"<br />🔴"headset" | +3 |
+| δ | Delta lower | - | - | 🟩yes | no | 🔶"frog fish" | +1,5 |
+| θ * | Theta | - | - | 🟩yes | 🔶ish | 🔶"oval with line"<br />🔶"pill" | +1,75 |
+| λ | Lambda lower | - | - | 🟩yes | ish- | 🟩"y upside-down" | +1 |
+| ξ | Xi lower | - | - | no (ε) | no | 🔴 |  |
+| π | Pi lower | gate<br />3,141592 | 🟩 +1@mac | 🟩yes | 🔶ish | 🧪"pi"<br />🟩"two T's" | +3,5 |
+| σ,ς | Sigma lower | whistle, - | - | no (tiny) | no | 🔶"handwriting o" , 🧪"failed c" | +0,5 |
+| φ * | Phi lower | tree (font dependent!) | - | no (ψ) | 🔶ish | 🔶"circle with vertical line" | +0,75 |
+| ψ | Psi lower | trident, pitchfork | - | 🟩yes, but no(φ) | 🟩yes | 🟩"trident"<br />🧪"pitchfork" | +3 |
+| ω | Omega lower | - | - | no | no  | 🧪"a round drawn w"<br />🧪"{nsfw}"<br />🟩"handwriting w" | +1 |
+
+\* because of similarity in how people could describe these letters, we want to prevent collisions and *"/Tee Naine Oow with line/"* needs to be enough to communicate the date. Not everybody might know the formal name of letters. 
+
+\** association is primarily focused on numerical associations, but others are welcome to get an idea.
+
+\*3 - Tested in Windows Explorer; you brain auto completes T9Ξ to T9E and on top of that, they do look similar.
+
+🧪 requires verification if this would ever be used by anyone this way. Other items in this column heave been verified by third party, but just n=1; to get an idea.
+
+🟩 green square: +1
+
+🔶 orange diamond: 0,5 ; 2x = 0,75
+
+🔴 red circle ; nope / not good enough
+
+> Why not one form? So people who are colour blind can see the difference. - That I don't expect visitors does not matter. #Design-brain-training.
+
+Best scoring letters in order based on current information (v1):
+
+Γ Δ Θ* Ππ Σ Φ* Ψψ Ω of which I should choose only one of *; which both scored the lowest.
+
+| Number                                                       | List 1 | List 2 | List 3 | List 4 | List 5 | List 6 | List inv. | List win. | List mac |
+| ------------------------------------------------------------ | ------ | ------ | ------ | ------ | ------ | ------ | --------- | --------- | -------- |
+| 27                                                           | Γ      | Γ      | Γ      | Γ      | Γ      | Γ      | Π         | Γ         | Δ        |
+| 28                                                           | Δ      | Δ      | Δ      | Δ      | Δ      | Θ      | Σ         | Θ         | Π (!)    |
+| 29                                                           | Θ      | Θ      | Π      | Σ      | Σ      | Σ      | Φ         | Σ         | π (!)    |
+| 30                                                           | Π      | Σ      | Σ      | Φ      | Φ      | Φ      | Ψ         | Φ         | Σ        |
+| 31                                                           | Σ      | Ψ      | Φ      | Ψ      | Ω      | Ψ      | Ω         | Ω         | Ω        |
+| last day                                                     | Ω      | Ω      | Ω      | Ω      | -      | Ω      | -         | -         | -        |
+|                                                              |        |        |        |        |        |        |           |           |          |
+| not used                                                     | Ψ      | Π      | Ψ      | Π      | Θ Π Ψ  | Π      | Γ Δ       | Δ Π Ψ     | Γ Ψ      |
+| mandatory excluded                                           | Φ      | Φ      | Θ      | Θ      | -      | ign.   | Θ         | ign.      | ΘΦ       |
+| Status                                                       |        |        |        |        |        |        |           |           | 🔴        |
+| Ψ vs Π: typeability mac superseded!                          | (1)    |        | (1)    |        | (0.5)  | (0)    | (1)       | (0.5)     | -        |
+| Ψ vs Π: Ψ wins due to easy description.                      |        | +1     |        | +1     | +0.5   | +1     | +1        | +0.5      | -        |
+| Ψ vs Π: Ψ wins on case similarity.                           |        | +1     |        | +1     | +0.5   | +1     | +1        | +0.5      | -        |
+| Φ vs Θ: equal in every area.<br />fyi: some font-dependencies. | -      | -      | -      | -      | -      |        | -         | -         | -        |
+| typeability quick on windows                                 | +4     | +4     | +4     | +4     | +4     | +5     | +3        | +5        | -        |
+| typeability quick on mac                                     | +3     | +2     | +2     | +2     | +3     | +2     | +2        | +2        | -        |
+| typeability on Greek keyb. mac&win Left Hand                 | +3/5   | +4/5   | +4/5   | +5/5   | +5/5   | +4/5   | +4/5      | +4/5      | -        |
+| Subtotal A                                                   | 10     | 12     | 10     | 13     | 12     | 13     | 11        | 12        | -        |
+| Ω vs Ψ: equal on most but Ψ has easier novice-description    | 0      | +1     | 0      | +1     | 0      | +1     | +1 n/a    | 0         | -        |
+| Ω vs Ψ: Ω has better keyb. support on mac&win                | 0      | 0      | 0      | 0      | +2     | 0      | +1 n/a    | +2        | -        |
+| Subtotal B                                                   | 10     | 13     | 10     | 14     | 14     | 14     | 13        | 14        | -        |
+| Δ vs Θ: Θ wins-ish on case similarity Δδ Θθ [max 0.5]        | +0,5   | +0.5   | 0      | 0      | 0      | +0.5   | 0         | +0.5      | -        |
+| Count case similar letters:                                  | 1x     | 2x     | 2x     | 2x     | 1x     | 3x     | 4x        | 3x        | -        |
+| Subtotal C                                                   |        |        |        |        |        | 14.5   |           | 14.5      |          |
+
+#### Intermediate conclusion
+
+ List 6 and List Windows have the most points, the difference is 31 = --Ω or --Ψ. 
+
+> Which combination is best?  Besides personal preference, I have no other means of measure to pre-determine which letter would be best at the moment. Let's give it a go in the iCal and let's see if there are any unforeseen surprises. Perhaps using the letters like Â-Ô will provide new insights. Also the current selection ignores the expected confusion between Θ and Φ, so there is more to experience.
+
+| Letter     | Date       |
+| ---------- | ---------- |
+| T9Γ        | 2020-09-27 |
+| T9Θ        | 2020-09-28 |
+| Τ9Σ        | 2020-09-29 |
+| Τ9Φ        | 2020-09-30 |
+| Τ9Ω \| T9Ψ | 2020-09-31 |
+
+So the testing will try to answer several questions:
+
+ 1. Is working with Greek letters in itself acceptable?
+ 2. Which letter is better to work with, Omega (Ω) or Psi (Ψ)?
+ 3. Are Thèta (Θ) and Phi (Φ) causing any confusion is distinguishing dates?
+
+
+
+
+
+# Meta
+
+| Attribute                    | Value                                     |
+| ---------------------------- | ----------------------------------------- |
+| Starting date                | T8- \| 2020-08                            |
+| Last formal publish update   | T9- \| 2020-09 \|^\| Check git commits:   |
+| Source location of this page | https://go.juramento.nl/source-shortdates |
+| Permalink to published page  | https://go.juramento.nl/shortdates        |
 
 
 
