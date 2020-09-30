@@ -647,32 +647,32 @@ Take note that:
 
 > Sometimes certain systems do now allow to spell project files, channels, team-names or whatever with capital letters. If we would allow lower case Greek letters into the spec whose upper case letters have a different meaning, that could result in a conflict of meaning, or in other words *ambiguity,* in contexts in which we have no control over letter capitalisation. 
 
-### Scoring letters
+#### Scoring remaining letters
 
 Now we have gathered more information we can create a kind of rating per letter:
 
-| Letter | Name | Association | Usability:<br />Typeability | Visually unique | Case Similarity | Novice human description |
-| ----------------- | ----------- | ----------- | ---- | ----------------- | ----------------- | ----------------- |
-|  |  |  | +1 for fast type method<br />0 for default |  | Yes |  |
-| Γ | Gamma upper | Reverse 7              | +1 windows |                 | no |  |
-| Δ | Delta upper | 4                      |             |                 | no | "triangle" |
-| Θ * | Theta upper |                        |             |                 | ish | "circle with line"🔶 |
-| Λ | Lambda upper | 30                     |             |                 | ish | "V upside-down" |
-| Ξ | Xi upper | 3                      |             |                 | no | "Three lines"<br />"Hambuger" |
-| Π | Pi upper |                        |             |                 | ish/yes 🔶 | "" |
-| Σ | Sigma upper | sum                    |             |                 | no | "sumtotal" |
-| Φ * | Phi upper |                        |             |                 | ish | "circle with line"🔶 |
-| Ψ | Psi upper | aquaman                |             |                 | yes 🟩 | "trident" |
-| Ω | Omega upper | superman<br />the last |             |                 | no |              |
-| δ | Delta lower |                        |             |                 | no |              |
-| θ * | Theta |                        |             |                 | ish |              |
-| λ | Lambda lower |                        |             |                 | ish | "Y upside-down" |
-| ξ | Xi lower |                        |             |                 | no |              |
-| π | Pi lower |                        |             |                 | ish |              |
-| σ,ς | Sigma lower |                        |             |                 | no |              |
-| φ * | Phi lower |                        |             |                 | ish |              |
-| ψ | Psi lower |                        |             |                 | yes 🟩 |              |
-| ω | Omega lower |                        |             |                 | no  |          |
+| Letter | Name | Association ** | Usability:<br />Typeability | Visually distinct novice | Case Similarity | Novice human description | Σ |
+| ----------------- | ----------- | ----------- | ---- | ----------------- | ----------------- | ----------------- | ----------------- |
+|  |  | +1 for usable to potential meaning 27-31 | +1 for extra fast type method<br />0 for default method |  | 0 for default <br />+1 is yes | simple & universal +2<br />edge +1 |  |
+| Γ | Gamma upper | 🟩 Mirrored 7   | 🟩 +1@windows | 🟩yes | no | 🔴"half rectangle" | +3 |
+| Δ | Delta upper | 4                      | 🟩 +1@mac | 🟩yes, if no Λ<br />🔶ish(Λ) | no | 🟩"triangle" | +3 |
+| Θ * | Theta upper | friend from Independence Day II | 🟩 +1@windows | 🟩yes | 🔶ish | 🟩"circle with line" + if no Φ<br />🔶"circle with line" | +3,5<br />+2,75! |
+| Λ | Lambda upper | 🟩30                   | - | 🔶ish(Δ) | ish- | 🟩"V upside-down" | +2,5! |
+| Ξ | Xi upper | -                     | - | no (E \*3) | no | 🟩"Three lines"<br />"Hambuger" (font dependent!) | +1 |
+| Π | Pi upper | goal | 🟩 +1@mac | 🟩yes- | ish/yes 🔶 | 🔶"Handwriting letter of N" | +2,75! |
+| Σ | Sigma upper | sum                | 🟩 +1@windows<br />🟩 +1@mac | 🟩yes | no | 🟩"mirrored 3"<br />🧪"sumtotal" | +4 |
+| Φ * | Phi upper | - | 🟩 +1@windows | 🟩yes | 🔶ish | 🟩"circle with vertical line" + if no Θ<br />🔶"circle with vertical line" | +3,5<br />+2,75! |
+| Ψ | Psi upper | aquaman<br />trident   | - | 🟩yes | 🟩yes | 🟩"trident" | +3 |
+| Ω | Omega upper | superman<br />the last | 🟩 +1@windows<br />🟩 +1@mac | 🟩yes | no | 🧪"Ohm"<br />🔴"headset" | +3 |
+| δ | Delta lower | - | - | 🟩yes | no | 🔶"frog fish" | +1,5 |
+| θ * | Theta | - | - | 🟩yes | 🔶ish | 🔶"oval with line"<br />🔶"pill" | +1,75 |
+| λ | Lambda lower | - | - | 🟩yes | ish- | 🟩"y upside-down" | +1 |
+| ξ | Xi lower | - | - | no (ε) | no | 🔴 |  |
+| π | Pi lower | gate<br />3,141592 | 🟩 +1@mac | 🟩yes | 🔶ish | 🧪"pi"<br />🟩"two T's" | +3,5 |
+| σ,ς | Sigma lower | whistle, - | - | no (tiny) | no | 🔶"handwriting o" , 🧪"failed c" | +0,5 |
+| φ * | Phi lower | tree (font dependent!) | - | no (ψ) | 🔶ish | 🔶"circle with vertical line" | +0,75 |
+| ψ | Psi lower | trident, pitchfork | - | 🟩yes, but no(φ) | 🟩yes | 🟩"trident"<br />🧪"pitchfork" | +3 |
+| ω | Omega lower | - | - | no | no  | 🧪"a round drawn w"<br />🧪"{nsfw}"<br />🟩"handwriting w" | +1 |
 
 \* because of similarity in how people could describe these letters, we want to prevent collisions and *"/Tee Naine Oow with line/"* needs to be enough to communicate the date. Not everybody might know the formal name of letters. 
 
