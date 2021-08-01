@@ -23,7 +23,7 @@ FYI: Go-links can be kept up to date if their destionation changes, hence indire
 
 Regards, J•Juramento
 */
-versionTimestamp = '20200825T204205'; //Only for vEvents; not for script.
+versionTimestamp = '20200825T204206'; //Only for vEvents; not for script.
 addEventListener('fetch', event => { 
     init_primary_vars();  //This wil set currentDate.
     
@@ -31,8 +31,8 @@ addEventListener('fetch', event => {
     var icallist = [0,0,0,0,0];
     var TheCalcMonday = new Date();
     
-    //First iteration: Five full weeks of daily events with the current day in the middle week. Rolling.
-    var numberOfEvents = 35; //5x 7 days.
+    //First iteration: 7 full weeks of daily events with the current day in the third week. Rolling.
+    var numberOfEvents = 49; //7x 7 days.
     var frequency = 1;
     startdate.setTime(currentDate.getTime() - 21*24*60*60*1000);  
     startdate = findDayofWeek(1,startdate); //finding Monday
@@ -59,11 +59,11 @@ addEventListener('fetch', event => {
     console.log('F2: Monday weekly in the past. ' + startdate + ' -- inputdata: ' + ical_inputdata) ;
     icallist += generateICALevents(startdate,frequency,numberOfEvents,ical_inputdata,"nowrap");
 
-    //Weekly Monday iteration. After the next 2 full weeks which are filled, every Monday for 12 weeks.
-    var numberOfEvents = 12; //Number of weeks (because of freq.=7).
+    //Weekly Monday iteration. After the next 4 full weeks which are filled daily, add item every Monday for 10 weeks.
+    var numberOfEvents = 10; //Number of weeks (because of freq.=7).
     //var numberOfEvents = 1; //debugmode
     var frequency = 7;
-    startdate.setTime(currentDate.getTime() + 14*24*60*60*1000); //For calc delta.
+    startdate.setTime(currentDate.getTime() + 4*7*24*60*60*1000); //For calc delta.
     startdate = findDayofWeek(1,startdate); //finding Monday again; the future one.
     init_second_Vars(startdate);
     //Preparing work array.
@@ -74,9 +74,9 @@ addEventListener('fetch', event => {
     
     //Preparing next iteration, additional weekly, but from today.
     if (currentDate.getDay() != 1) {
-    var numberOfEvents = 4; //Number of weeks (because of freq.=7).
+    var numberOfEvents = 10; //Number of weeks (because of freq.=7).
     var frequency = 7;
-    startdate.setTime(currentDate.getTime() + 21*24*60*60*1000); //Same weekday after 3 weeks. 
+    startdate.setTime(currentDate.getTime() + 5*7*24*60*60*1000); //Same weekday after 5 weeks. 
     console.log("F4: startdate:" + startdate);
     init_second_Vars(startdate);
     //Preparing work array.
@@ -213,7 +213,7 @@ function convertTo1Digit(input){
   var dayletters = 
   ["0","A","B","C","D","E","F","G","H","I","J","K","L",
   "M","N","O","P","Q","R","S","T","U","V","W","X","Y",
-  "Z","Γ","Θ","Σ","Φ","Ψ/Ω"];
+  "Z","Γ","Θ","Σ","Φ","Ψ"];
 
   return dayletters[input]
 }
@@ -266,8 +266,8 @@ async function handleRequest(request,returnTXT) {
     {
       status: 200,
       headers: {
-        //'content-type' : 'text/calendar'
-        'content-type' : 'text/plain'
+        'content-type' : 'text/calendar'
+        //'content-type' : 'text/plain'
       }
       
 
