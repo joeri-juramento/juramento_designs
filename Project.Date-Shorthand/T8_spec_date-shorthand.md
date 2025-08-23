@@ -223,7 +223,7 @@ There is one happy coincidental extension point of the spec. If one would want a
 
 
 
-# Spec v0.9.1
+# Spec v0.9.1 (Partially Superseded)
 
 
 
@@ -731,13 +731,13 @@ Best scoring letters in order based on current information (v1):
 
 > Which combination is best?  Besides personal preference, I have no other means of measure to pre-determine which letter would be best at the moment. Let's give it a go in the iCal and let's see if there are any unforeseen surprises. Perhaps using the letters like Â-Ô will provide new insights. Also the current selection ignores the expected confusion between Θ and Φ, so there is more to experience.
 
-| Letter     | Date       |
-| ---------- | ---------- |
-| T9Γ        | 2020-09-27 |
-| T9Θ        | 2020-09-28 |
-| Τ9Σ        | 2020-09-29 |
-| Τ9Φ        | 2020-09-30 |
-| Τ9Ω \| T9Ψ | 2020-09-31 |
+| Letter         | Date       |
+| -------------- | ---------- |
+| T9Γ            | 2020-09-27 |
+| T9Θ            | 2020-09-28 |
+| Τ9Σ            | 2020-09-29 |
+| Τ9Φ            | 2020-09-30 |
+| ~~Τ9Ω~~ \| T9Ψ | 2020-09-31 |
 
 So the testing will try to answer several questions:
 
@@ -745,7 +745,116 @@ So the testing will try to answer several questions:
  2. Which letter is better to work with, Omega (Ω) or Psi (Ψ)?
  3. Are Thèta (Θ) and Phi (Φ) causing any confusion is distinguishing dates?
 
+Answers below.
 
+# Spec 1.0.1
+
+Shorthand date notation contains 3 characters. First character represents the year. Second the month. Third the day-date-number.
+
+1. The range of years is 2001 (letter A) up to 2031 (letter psi Ψ).
+
+2. The range of months is January (1) up to September (9) up to October, November and December as J,K,L respectively. 
+
+3. The range of days is 0 (char -) up to 31 (letter psi Ψ).
+4. For numbers 28 tot 31, five letters from the Greek alphabet are used. (See above.)
+5. It must be a lexicographically sortable date that preserves chronological order and sorts identically across Windows, MacOs, iOS in Explorer, Command-Prompt, PowerShell, Finder, Files-app and Terminal-zsh.
+
+- In special circumstances, if a Greek letter is not allowed, complete the format with a dash and concatenates the number like  `Y7-29_` for`Y7Ψ_`. 
+- An underscore (or space) must follow the date to keep the shortdate a separate prefix. 
+- If used as suffix, `~_vY7A`  could be a possible notation.
+- A shortdate must be in capitals unless technology does not allow it.
+
+### Examples
+
+| Shortdate | ISO Date   |
+| :-------- | ---------- |
+| A1A       | 2001-01-01 |
+| ALΨ       | 2001-12-31 |
+| Y8-       | 2025-08    |
+| Y9A       | 2025-09-01 |
+| Y9Φ       | 2031-09-30 |
+| ΨLΨ       | 2031-12-31 |
+
+
+
+# Experiences & Reflection
+
+After using shorthand date for about 5 years, we reflect in 2025:
+
+## Answers
+
+1. *Is working with Greek letters in itself acceptable?* 
+
+   Yes, on MacOs a Shortcut is always nearby to past ShortDate onto the clipboard or a widget or calendar that shows the ShortDates of yesterday, today and so on. Occasionally you run into an issue where Greek letters are not allowed, this usually results in using 'X8-27' instead of the ShortDate X8Γ; still shorter. Typing the Greek letters on iOS is easy, on MacOS or Windows you find yourself trying a few buttons occasionally. 
+
+2. *Which letter is better to work with, Omega (Ω) or Psi (Ψ)?*
+
+   Psi (Ψ). It has a lookalike '3' in it on its side and a stick left over for the 1 for 31. So its easier to remember. Secondly, writing an omega with a pen turned out to be too hard and in my handwriting was aesthetic very displeasing. All the other letters could be drawn with conviction, but the omega was hard to remember or use and therefore no longer used.
+
+3. *Are Thèta (Θ) and Phi (Φ) causing any confusion is distinguishing dates?*
+
+   No, Theta can be made an 8 shape-wise and is therefore a reminder of 28. Phi was harder to remember, but never confused with 28.
+
+## Experiences
+
+   The benefits of Shorthand Dates:
+
+- On mobile or tablets in file lists context, one can actually keep the files apart. Limited horizontal width is less of an issue.
+- On desktop important information being 'ellipsed' (dotted ...) because of long file/project names no longer an issue.
+- On desktop in finder/explorer context you can quickly identify years or months without losing glancing access to other information in the name.
+- Regular search on first chars like 'X8-' was very quick and effective.
+- The shorthand date actually fits in the dedicated date-field on paper.
+- Most dates are very fast to use, write or type. 
+  - During the "Greek days", in the digital world I prefer calendar-widget-peeking or quick Shortcut that copies date to clipboard. 
+- In autocomplete situations, you finish quicker because the delta is in one character.
+- When working with paths, filenames are shorter, making the full command easier to read.
+- Typing numerical dates usually take longer and seemed more prone to typos. 
+  - Maybe because shortdates are copied more often than typed.
+  - Shortdates are shorter, so less mistakes possible.
+
+
+## Reflection
+
+- Shorthand dates are for personal use, I have not had the need to share these dates with others. For documents that were deliverables for others, I have altered it to a normal YYYY-MM(-DD) when needed. 
+  - Since intermediate files and end-deliverables usually have to be stored in different location, it is not an issue.
+  - Shortdates solve a problem for me, it is totally acceptable and doable to convert it for others.
+  - Incidentally, perhaps, another user has seen a name with a shortdate, but they might read it as an abbreviation of something so it remains harmless. 
+- Using the dash to refer to the whole month like 'Y8-' worked fine. `X8-_FileExample.txt` The dash with underscore looks a little weird perhaps, but the benefits in sorting and searching outweighed that.
+- Sometimes, the width of different shortdates is slightly different if the font letter width differs. 
+- The Shortdate iCal system has a moving date horizon and an active "day of the week" that goes further than the normal horizon. A side effect in some online calendar systems is finding many Shortdate events in the trash as the horizon moves, days are deleted & added from the calendar. A less complex iCal horizon can solve this. 
+- Converting dates in my head goes pretty quickly, but a digital device with calendar is usually nearby when this is relevant.
+- I do wish we had universal one-char numbers up to at least 31.
+- I wish we had an [3-]unicode/emoji char[s] for dates that render universally.
+  - Perhaps with regional date rendered representations (like different operating systems implement emoji.)
+    - And if they have different regional date representations, one must not be able to confuse dates due to some visible delta.
+  - They would fall back on year-month-date if not rendered. 
+  - They would date sort properly.
+  - They take up less horizontal space than the full date.
+- Since it is working for me, I find it suboptimal that beyond 2031, no 3-character solution exists yet. 
+
+### Differences around the world
+
+The following table ([Source](https://en.wikipedia.org/wiki/Date_format_by_country)) is added to showcase (an outtake) of the differences that exists in how people type and write dates.
+
+| Country        | Continent     | Gov./Official Format | Common/Everyday Format | / - . ? |
+|----------------|---------------|----------------------------|------------------------|----------------|
+| Netherlands    | Europe        | YYYY-MM-DD            | DD-MM-YYYY             | - |
+| France         | Europe        | DD/MM/YYYY            | <- ditto | / |
+| United Kingdom | Europe        | DD/MM/YYYY            | <- ditto | / |
+| Germany        | Europe        | YYYY-MM-DD           | DD.MM.YYYY             | - . |
+| Kenya          | Africa        | YY/MM/DD             | DD/MM/YYYY (Eng), M/D/YYYY (Sw) | / |
+| South Africa   | Africa        | YYYY-MM-DD           | DD/MM/YYYY             | - / |
+| China          | Asia          | YYYY/M/D              | YYYY/M/D               | / |
+| Japan          | Asia          | YYYY/MM/DD          | <- ditto     | / |
+| India          | Asia          | YYYY-MM-DD            | DD-MM-YYYY             | - |
+| United States  | North America | YYYY-MM-DD            | MM/DD/YYYY             | - / |
+| Canada         | North America | YYYY-MM-DD           | DD/MM/YYYY (EN), YYYY-MM-DD (FR) | - / |
+| Mexico         | North America | DD/MM/YYYY           | DD/MM/YYYY             | / |
+| Brazil         | South America | DD/MM/YYYY            | <- ditto | / |
+| Argentina      | South America | YYYYMMDD              | DD/MM/YYYY             | [] / |
+| Australia      | Oceania       | YYYY-MM-DD            | DD/MM/YYYY             | - / |
+| New Zealand    | Oceania       | YYYY-MM-DD            | DD/MM/YYYY             | - / |
+| (ShortDate) | - | YMD | YMD | [] |
 
 
 
@@ -754,7 +863,7 @@ So the testing will try to answer several questions:
 | Attribute                    | Value                                     |
 | ---------------------------- | ----------------------------------------- |
 | Starting date                | T8- \| 2020-08                            |
-| Last formal publish update   | T9- \| 2020-09 \|^\| Check git commits:   |
+| Last update                  | Y8- \| 2025-08 \| Check git commits:      |
 | Source location of this page | https://go.juramento.nl/source-shortdates |
 | Permalink to published page  | https://go.juramento.nl/shortdates        |
 
@@ -763,5 +872,4 @@ So the testing will try to answer several questions:
 
 
 <!--End of File marker; for Git.-->
-
 
